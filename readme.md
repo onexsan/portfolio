@@ -1,3 +1,19 @@
+ФИО | Филилеева Виктория Филипповна
+--- | ---
+Макет | Autumn
+Номер д/з | ДЗ 1
+Ссылка на репозиторий | https://github.com/onexsan/filileeva-ls 
+Ссылка на сайт | https://onexsan.github.io/filileeva-ls/
+
+How to install and build my app
+
+1. git clone https://github.com/onexsan/filileeva-ls.git
+2. cd filileeva-ls
+3. npm i
+4. npm run build
+
+
+
 # Учебный шаблон проекта Portfolio
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
