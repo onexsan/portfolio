@@ -1,11 +1,11 @@
 ФИО | Филилеева Виктория Филипповна
 --- | ---
-Макет | Autumn
-Номер д/з | ДЗ 1
-Ссылка на репозиторий | https://github.com/onexsan/filileeva-ls 
-Ссылка на сайт | https://onexsan.github.io/filileeva-ls/
+*Макет* | Autumn
+*Номер д/з* | ДЗ 1
+*Ссылка на репозиторий* | https://github.com/onexsan/filileeva-ls 
+*Ссылка на сайт* | https://onexsan.github.io/filileeva-ls/
 
-How to install and build my app
+*How to install and build my app*
 
 1. git clone https://github.com/onexsan/filileeva-ls.git
 2. cd filileeva-ls
