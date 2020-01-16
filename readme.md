@@ -7,10 +7,12 @@
 
 **How to install and build my app**
 
-`git clone https://github.com/onexsan/filileeva-ls.git
+```
+git clone https://github.com/onexsan/filileeva-ls.git
 cd filileeva-ls
 npm i
-npm run build`
+npm run build
+```
 
 ***
 
