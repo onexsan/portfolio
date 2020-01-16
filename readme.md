@@ -5,14 +5,14 @@
 *Ссылка на репозиторий* | https://github.com/onexsan/filileeva-ls 
 *Ссылка на сайт* | https://onexsan.github.io/filileeva-ls/
 
-*How to install and build my app*
+**How to install and build my app**
 
-1. git clone https://github.com/onexsan/filileeva-ls.git
-2. cd filileeva-ls
-3. npm i
-4. npm run build
+`git clone https://github.com/onexsan/filileeva-ls.git
+cd filileeva-ls
+npm i
+npm run build`
 
-
+***
 
 # Учебный шаблон проекта Portfolio
 
