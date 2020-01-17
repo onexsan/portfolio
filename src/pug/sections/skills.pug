@@ -1,0 +1,19 @@
+section.section.skills 
+	.container.skills__container
+		.skills__content
+			.skills__about
+				h2 Чем я могу быть полезна вам
+				p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+			.skills__data
+				.skills__group.skills__group--frontend
+					h3 Frontend
+					.skills__charts
+						- var skills = ["HTML 5", "CSS 3", "Javascript", "jQuery & vue.js"]
+						each item in skills
+							.skills__item= item
+				.skills__group.skills__group--workflow
+					h3 Workflow
+					.skills__charts
+						- var skills = ["Git", "Terminal", "Gulp", "Webpack"]
+						each item in skills
+							.skills__item= item
