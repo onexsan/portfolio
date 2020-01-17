@@ -1,0 +1,13 @@
+section.section.projects 
+	.container.projects__container
+		h3 Мои работы
+		.projects__slider
+			.projects__picture Pic
+			.projects__desc
+				.projects__tags
+					- var tags = ["HTML", "CSS", "Javascript"]
+					each item in tags
+						.tags__item= item
+				h4.projects__title Сайт школы образования
+				.projects__about Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+				.projects__link Посмотреть сайт

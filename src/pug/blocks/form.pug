@@ -1,0 +1,14 @@
+form.contact__form(action="POST")
+	.contact__form-row
+		label.contact__form-block
+			.contact__form-label Введите ваше имя
+			input.contact__form-input(type="text" name="name" placeholder="Иван Иванов")
+		label.contact__form-block
+			.contact__form-label Введите ваш email
+			input.contact__form-input(type="email" name="email" placeholder="example@mail.com")
+	.contact__form-row
+		label.contact__form-block
+			.contact__form-label Сообщение к письму
+			input.contact__form-input.contact__form-input--textarea(type="textarea" name="comment" placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
+	.contact__form-row.contact__form-row--button
+		input.btn.form-btn(type="submit" value="Отправить" name="submit-btn")
