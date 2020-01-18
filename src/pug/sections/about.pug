@@ -10,17 +10,23 @@ section.section.about
 						tr
 							- var data = ["Проживаю:", "Санкт-Петербург"]
 							each item in data
-								td.table__item= item
+								td.table__item
+									p= item
 						tr
 							- var data = ["Возраст:", "23 года"]
 							each item in data
-								td.table__item= item
+								td.table__item
+									p= item
 						tr
 							- var data = ["Родилась:", "29 января 1997"]
 							each item in data
-								td.table__item= item
+								td.table__item
+									p= item
 		.about__desc
 			p.about__hello Привет, меня зовут
 			h2.about__title Виктория Филилеева
 			p.about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-			p.about__ps Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+			.about__ps 
+				.about__ps-image
+					+icon("asterisk", "about__icon")
+				p.about__ps-text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!

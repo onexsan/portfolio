@@ -2,19 +2,35 @@ section.section.reviews
 	.container.reviews__container
 		h3.section__title.reviews__title Что обо мне говорят
 		.reviews__slider
+			.slider__btns
+				.slider-btn
+					button.slider-btn__item.slider-btn__item--slide--prev <
+					button.slider-btn__item.slider-btn__item--slide--next >
 			.reviews__item
-				.reviews__text
-					p Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-				.reviews__author
-					.author__pic Pic
-					.author__desc
-						p.author__name Ковальчук Дмитрий
-						p.author__info Основатель LoftSchool
+				.reviews__image
+					+icon("quote", "reviews__icon")
+				.reviews__content
+					.reviews__desc
+						p.reviews__text Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+					.reviews__author
+						.author__pic
+							.author__avatar
+								.avatar
+									+image("content/review-1.png", "author__image")
+						.author__desc
+							p.author__name Ковальчук Дмитрий
+							p.author__info Основатель LoftSchool
 			.reviews__item
-				.reviews__text
-					p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-				.reviews__author
-					.author__pic Pic
-					.author__desc
-						p.author__name Сабанцев Владимир
-						p.author__info Преподаватель
+				.reviews__image
+					+icon("quote", "reviews__icon")
+				.reviews__content
+					.reviews__desc
+						p.reviews__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+					.reviews__author
+						.author__pic
+							.author__avatar
+								.avatar
+									+image("content/review-2.png", "author__image")
+						.author__desc
+							p.author__name Сабанцев Владимир
+							p.author__info Преподаватель

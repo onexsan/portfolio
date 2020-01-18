@@ -1,15 +1,63 @@
+.about {
+	background-color: #74b4c4;
+}
+
 .about__container {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 }
 
 .about__desc {
-	width: 50%;
+	width: 40%;
+	color: white;
 }
 
 .about__info {
+	margin-right: 150px;
+	color: white;
+}
+
+.personal-info {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+}
+
+.personal-info__avatar {
+	margin-bottom: 50px;
+}
+
+.about {
+	&__title, &__hello {
+		margin-bottom: 5px;
+	}
+	&__text {
+		margin-bottom: 30px;
+	}
+	&__ps {
+		font-weight: normal;
+  		font-style: italic;
+	}
+	&__hello, &__ps, &__text {
+		opacity: .5;
+	}
+}
+
+.about__ps {
+	display: flex;
+	align-items: flex-start;
+
+	&-image {
+		margin-left: -40px;
+		margin-top: 10px;
+		margin-right: 15px;
+	}
+}
+
+.about__icon {
+	width: 20px;
+	height: 20px;
+	fill: rgba(219, 2, 0, 0.3);
 }

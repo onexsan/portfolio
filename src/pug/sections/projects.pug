@@ -6,21 +6,24 @@ section.section.projects
 				.slider
 					.slider__picture
 					.slider__preview
-						p Pic
-					.slider__buttons
-						.slider-button
-							button.slider-buttons__item.slider-buttons__item--slide--prev 
-							button.slider-buttons__item.slider-buttons__item--slide--next
+						+image("content/preview-1.jpg", "slider__image")
+					.slider__btns
+						.slider-btn
+							button.slider-btn__item.slider-btn__item--slide--prev <
+							button.slider-btn__item.slider-btn__item--slide--next >
 			.projects__data
 				.projects__desc
 					.projects__tags
 						- var tags = ["HTML", "CSS", "Javascript"]
 						each item in tags
-							.tags__item= item
+							.tags__item
+								a.tags__link= item
 					.projects__text
 						h4.projects__title Сайт школы образования
 						.projects__about 
-							p Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-						.projects__link 
-							.iconed-link__icon Pic
-							.iconed-link__text Посмотреть сайт
+							p.projects__info Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+						.projects__link
+							a.iconed-link
+								.iconed-link__image
+									+icon("link", "iconed-link__icon")
+								p.iconed-link__text Посмотреть сайт

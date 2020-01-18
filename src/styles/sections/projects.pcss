@@ -8,8 +8,19 @@
 	display: flex;
 }
 
+
+.projects {
+	&__title, &__tags, &__about, &__link {
+		margin-bottom: 20px;
+	}
+}
+
 .projects__visuals {
-	width: 50%;
+	margin-right: 100px;
+}
+
+.projects__info {
+	opacity: .7;
 }
 
 .projects__tags {
@@ -18,10 +29,49 @@
 
 .tags__item {
 	margin-right: 10px;
+
+	&:hover {
+		.tags__link {
+			color: $href;
+		}
+	}
 }
 
-.projects {
-	&__title, &__tags, &__about, &__link {
-		margin-bottom: 20px;
+.tags__link {
+	color: $font;
+	opacity: .7;
+	font-size: 15px;
+  	font-weight: 600;
+}
+
+
+.iconed-link {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		height: 15px;
+		width: 15px;
+		fill: $href;
 	}
+
+	&__image {
+		margin-right: 5px;
+	}
+}
+
+.projects__link:hover {
+	.iconed-link__icon {
+		fill: $font;
+	}
+
+	.iconed-link__text {
+		color: $font;
+	}
+}
+
+.tags__item {
+	padding: 10px 15px;
+	background-color: rgba(#859ec2, .1);
+	border-radius: 22px;
 }

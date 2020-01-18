@@ -1,17 +1,19 @@
 footer.footer
 	.footer__container
 		.footer__copyright
-			p (c) 2020
+			p.footer__copyright-text © 2020
 		.footer__author
-			p Виктория Филилеева
-			p Личный сайт веб-разработчика
+			p.footer__author-name Виктория Филилеева
+			p.footer__author-desc Личный сайт веб-разработчика
 		.footer__menu
 			.footer__menu-row
-				include ../blocks/nav.pug
+				.footer__nav
+					include ../blocks/nav.pug
 			.footer__menu-row
-				.footer__menu-about
-					p Этот сайт я сделала в рамках обучения в Школе онлайн образования Loftschool
-					include ../blocks/socials.pug
-				.footer__menu-quote
-					p Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
-					p Martin Fowler
+				.footer__about
+					p.footer__about-text Этот сайт я сделала в рамках обучения в Школе онлайн образования Loftschool
+					.footer__links
+						include ../blocks/socials.pug
+				.footer__quote
+					p.footer__quote-text Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+					p.footer__quote-author Martin Fowler

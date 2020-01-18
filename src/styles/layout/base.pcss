@@ -52,6 +52,10 @@ body {
   justify-content: space-between;
 }
 
+.final-section {
+  background-color: #0567a8;
+}
+
 .section {
   min-height: 500px;
 }
@@ -96,6 +100,8 @@ h2 {
 h3 {
   font-size: 30px;
   font-weight: bold;
+  margin-bottom: 40px;
+  color: $font;
 }
 
 h4 {
@@ -107,7 +113,9 @@ p {
   margin: 0;
   padding: 0;
   color: inherit;
-  opacity: .7;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.88;
 }
 
 button[type="button"] {
@@ -117,9 +125,14 @@ button[type="button"] {
 }
 
 a {
-  color: inherit;
+  color: $href;
   cursor: pointer;
   text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  &:hover {
+    color: $font;
+  }
 }
 
 img {
