@@ -29,6 +29,7 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1480px;
+  height: 100%;
   width: 95%;
   // width: 1490px;
 
@@ -37,20 +38,22 @@ body {
   }
 }
 
-.fullscreen-section {
-  height: 100vh;
+.welcome-section {
   min-height: 650px;
 }
 
-.section {
-  height: 550px;
+.final-section {
+	min-height: 1000px;
 }
 
-.container {
-  height: 100%;
+.welcome-section, .final-section {
   display: flex;
-	justify-content: center;
-	align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section {
+  min-height: 500px;
 }
 
 button {
@@ -81,16 +84,20 @@ h6 {
 p {
   margin: 0;
   padding: 0;
+  color: $font;
+  opacity: .7;
 }
 
 button[type="button"] {
   cursor: pointer;
   background-color: transparent;
+  color: $main;
 }
 
 a {
   color: inherit;
   cursor: pointer;
+  text-decoration: none;
 }
 
 img {

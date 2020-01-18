@@ -9,11 +9,12 @@ html(lang="en")
     title Portfolio | Главная
   body
     .wrapper
-      .maincontent
-        include ./pug/sections/header
-        include ./pug/sections/welcome
+      .welcome-section
+        include ./pug/sections/hero
         include ./pug/sections/about
-        include ./pug/sections/skills
-        include ./pug/sections/projects
-        include ./pug/sections/final
-        include ./pug/sections/footer
+      include ./pug/sections/skills
+      include ./pug/sections/projects
+      .final-section
+        include ./pug/sections/reviews
+        include ./pug/sections/contact       
+      include ./pug/sections/footer

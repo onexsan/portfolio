@@ -1,13 +1,26 @@
 section.section.projects 
 	.container.projects__container
-		h3 Мои работы
-		.projects__slider
-			.projects__picture Pic
-			.projects__desc
-				.projects__tags
-					- var tags = ["HTML", "CSS", "Javascript"]
-					each item in tags
-						.tags__item= item
-				h4.projects__title Сайт школы образования
-				.projects__about Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-				.projects__link Посмотреть сайт
+		h3.section__title.projects__title Мои работы
+		.projects__content
+			.projects__visuals
+				.slider
+					.slider__picture
+					.slider__preview
+						p Pic
+					.slider__buttons
+						.slider-button
+							button.slider-buttons__item.slider-buttons__item--slide--prev 
+							button.slider-buttons__item.slider-buttons__item--slide--next
+			.projects__data
+				.projects__desc
+					.projects__tags
+						- var tags = ["HTML", "CSS", "Javascript"]
+						each item in tags
+							.tags__item= item
+					.projects__text
+						h4.projects__title Сайт школы образования
+						.projects__about 
+							p Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+						.projects__link 
+							.iconed-link__icon Pic
+							.iconed-link__text Посмотреть сайт
