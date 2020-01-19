@@ -1,4 +1,4 @@
-section.section.projects 
+section.section.projects(id="projects")
 	.container.projects__container
 		h3.section__title.projects__title Мои работы
 		.projects__content
@@ -17,13 +17,13 @@ section.section.projects
 						- var tags = ["HTML", "CSS", "Javascript"]
 						each item in tags
 							.tags__item
-								a.tags__link= item
+								a.tags__link(href="#" target="_blank")= item
 					.projects__text
 						h4.projects__title Сайт школы образования
 						.projects__about 
 							p.projects__info Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
 						.projects__link
-							a.iconed-link
+							a.iconed-link(href="http://onexsan.tmweb.ru/" target="_blank")
 								.iconed-link__image
 									+icon("link", "iconed-link__icon")
 								p.iconed-link__text Посмотреть сайт
