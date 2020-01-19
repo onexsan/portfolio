@@ -10,11 +10,15 @@ html(lang="en")
   body
     .wrapper
       .welcome-section
+        .parallax
+          +image("backgrounds/bg-train.jpg", "parallax__image")
         include ./pug/sections/hero
         include ./pug/sections/about
       include ./pug/sections/skills
       include ./pug/sections/projects
       .final-section
+        .parallax
+          +image("backgrounds/bg-road.png", "parallax__image")
         include ./pug/sections/reviews
-        include ./pug/sections/contact       
+        include ./pug/sections/contact
       include ./pug/sections/footer
