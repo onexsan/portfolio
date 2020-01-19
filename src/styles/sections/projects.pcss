@@ -6,6 +6,7 @@
 
 .projects__content {
 	display: flex;
+	justify-content: space-between;
 }
 
 
@@ -16,7 +17,12 @@
 }
 
 .projects__visuals {
-	margin-right: 100px;
+	margin-right: 70px;
+	width:50%;
+}
+
+.projects__data {
+	width: 40%;
 }
 
 .projects__info {
@@ -74,4 +80,27 @@
 	padding: 10px 15px;
 	background-color: rgba(#859ec2, .1);
 	border-radius: 22px;
+}
+
+.projects__visuals {
+	position: relative;
+}
+
+.projects__visuals:after {
+	content: "";
+	position: absolute;
+	right: -200px;
+	top: 20px;
+	width: 212px;
+	height: 290px;
+	z-index: -1;
+  	background-image: url("~images/backgrounds/number-2.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.slider {
+	display: flex;
+	align-items: flex-end;
 }

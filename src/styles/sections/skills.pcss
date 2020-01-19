@@ -4,6 +4,20 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #000;
+	position: relative;
+}
+
+.skills:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 385px;
+	height: 593px;
+  	background-image: url("~images/backgrounds/hands.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .skills__container {
@@ -27,7 +41,7 @@
 }
 
 .skills__data {
-	width: 45%;
+	width: 48%;
 	color: white;
 }
 
@@ -39,10 +53,7 @@
 	display: flex;
 }
 
-.skill__shape {
-  width: 50px;
-  height: 50px;
-  fill: transparent;
-  stroke: red;
-  stroke-width: 4px;
+.donut {
+  width: 140px;
+  height: 140px;
 }

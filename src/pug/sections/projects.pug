@@ -5,12 +5,14 @@ section.section.projects(id="projects")
 			.projects__visuals
 				.slider
 					.slider__picture
-					.slider__preview
-						+image("content/preview-1.jpg", "slider__image")
+						.slider__preview
+							+image("content/preview-1.jpg", "slider__image")
 					.slider__btns
 						.slider-btn
-							button.slider-btn__item.slider-btn__item--slide--prev <
-							button.slider-btn__item.slider-btn__item--slide--next >
+							button.slider-btn__item
+								+icon("short-arrow","slider-btn__icon--left")
+							button.slider-btn__item.slider-btn__item--inactive
+								+icon("short-arrow","slider-btn__icon--right")
 			.projects__data
 				.projects__desc
 					.projects__tags
