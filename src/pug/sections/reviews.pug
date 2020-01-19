@@ -1,11 +1,14 @@
 section.section.reviews(id="reviews")
 	.container.reviews__container
-		h3.section__title.reviews__title Что обо мне говорят
+		.reviews__intro
+			h3.section__title.reviews__title Что обо мне говорят
+			.double-btns
+				.double-btn
+					button.double-btn__item.double-btn__item--inactive
+						+icon("short-arrow","double-btn__icon double-btn__icon--left")
+					button.double-btn__item
+						+icon("short-arrow","double-btn__icon double-btn__icon--right")
 		.reviews__slider
-			.slider__btns
-				.slider-btn
-					button.slider-btn__item.slider-btn__item--slide--prev <
-					button.slider-btn__item.slider-btn__item--slide--next >
 			.reviews__item
 				.reviews__image
 					+icon("quote", "reviews__icon")
