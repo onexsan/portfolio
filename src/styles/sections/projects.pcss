@@ -10,16 +10,25 @@
 	justify-content: space-between;
 }
 
+.projects__title {
+	font-size: 2.25rem;
+	margin-bottom: 3.25rem;
+}
+
 
 .projects {
-	&__title, &__tags, &__about, &__link {
+	&__tags, &__link {
 		margin-bottom: 20px;
 	}
 }
 
+.projects__about {
+	margin-bottom: 3rem;
+}
+
 .projects__visuals {
-	margin-right: 70px;
-	width:60%;
+	margin-right: 4.375rem;
+    width: 75%;
 }
 
 .projects__data {
@@ -36,7 +45,10 @@
 
 .tags__item {
 	margin-right: 10px;
-
+	padding: 0.7rem 1.5rem;
+	background-color: rgba(#859ec2, .1);
+	border-radius: 22px;
+	
 	&:hover {
 		.tags__link {
 			color: $href;
@@ -75,12 +87,6 @@
 	.iconed-link__text {
 		color: $font;
 	}
-}
-
-.tags__item {
-	padding: 10px 15px;
-	background-color: rgba(#859ec2, .1);
-	border-radius: 22px;
 }
 
 .projects__visuals {

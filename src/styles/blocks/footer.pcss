@@ -6,27 +6,29 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding: 70px 50px;
+	padding: 5.375rem 3.125rem;
+}
+
+.footer__left {
+	width: 30%;
+    margin-right: 5.375rem;
 }
 
 .footer__menu {
 	display: flex;
 	flex-direction: column;
-	width: 60%;
+	
 	&-row {
 		display: flex;
 	}
 }
 
-.footer__author {
-	width: 15%;
+.footer__about {
+	margin-right: 54px;
+  	width: 40%; 
 }
 
-.footer__author, .footer__copyright {
-	margin-right: 15px;
-}
-
-.footer__about, .footer__quote {
+.footer__quote {
 	width: 50%;
 }
 
@@ -53,12 +55,16 @@
 	opacity: .15;
 }
 
-.footer__copyright-text {
-	font-size: 48px;
-  	font-weight: 600;
-	color: white;
-	opacity: .1;
-	line-height: 1;
+.footer__copyright {
+	margin-bottom: 0.5rem;
+
+	&-text {
+		font-size: 48px;
+		font-weight: 600;
+		color: white;
+		opacity: .1;
+		line-height: 1;
+	}
 }
 
 .footer__quote-author {
