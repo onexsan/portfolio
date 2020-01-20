@@ -1,14 +1,14 @@
 form.contact__form(action="POST")
 	.contact__form-row
-		label.contact__form-block.contact__form-block--name
-			.contact__form-label Введите ваше имя
-			input.contact__form-input(type="text" name="name" placeholder="Иван Иванов")
-		label.contact__form-block.contact__form-block--email
-			.contact__form-label Введите ваш email
-			input.contact__form-input(type="email" name="email" placeholder="example@mail.com")
+		.contact__form-block.contact__form-block--name
+			label.contact__form-label(for="form-name") Введите ваше имя
+			input.contact__form-input(type="text" name="name" id="form-name" placeholder="Иван Иванов")
+		.contact__form-block.contact__form-block--email
+			label.contact__form-label(for="form-email") Введите ваш email
+			input.contact__form-input(type="email" name="email" id="form-email" placeholder="example@mail.com")
 	.contact__form-row
-		label.contact__form-block.contact__form-block--message
-			.contact__form-label Сообщение к письму
-			input.contact__form-input.contact__form-input--textarea(type="textarea" name="comment" placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
+		.contact__form-block.contact__form-block--message
+			label.contact__form-label(for="form-message") Сообщение к письму
+			textarea.contact__form-input.contact__form-input--textarea(name="comment" id="form-message" placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса. Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса. Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
 	.contact__form-row.contact__form-row--button
 		button.btn.form-btn(type="submit" name="submit-btn") Отправить
