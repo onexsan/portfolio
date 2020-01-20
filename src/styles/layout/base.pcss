@@ -9,6 +9,7 @@ html {
 body,
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -23,12 +24,12 @@ body {
 .wrapper {
   overflow: hidden;
   min-height: 100%;
-  position: relative;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1480px;
+  height: 100%;
   width: 95%;
   // width: 1490px;
 
@@ -38,8 +39,43 @@ body {
 }
 
 .fullscreen-section {
-  height: 100vh;
-  min-height: 650px;
+	height: 100vh;
+	min-height: 568px;
+}
+
+.welcome-section, .final-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #000;
+}
+
+.section {
+  min-height: 500px;
+  
+}
+
+.welcome-section, .welcome-section section {
+	position: relative;
+}
+
+.final-section, .final-section section {
+	position: relative;
+}
+
+.parallax {
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax__image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 button {
@@ -64,22 +100,76 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+  color: inherit;
   margin: 0;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 0.85;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: $font;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 p {
   margin: 0;
   padding: 0;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.88;
 }
 
 button[type="button"] {
   cursor: pointer;
   background-color: transparent;
+  color: $main;
 }
 
 a {
-  color: inherit;
+  color: $href;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  &:hover {
+    color: $main;
+  }
+  &:focus {
+    outline: 1px solid $main;
+  }
+  &:active {
+    color: $href;
+    outline: 1px solid transparent;
+  }
+}
+
+input {
+  &:focus {
+    outline: 1px solid $main;
+  }
+}
+
+button {
+  &:focus {
+    outline: 1px solid white;
+  }
 }
 
 img {

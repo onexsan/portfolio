@@ -1,0 +1,113 @@
+.projects__container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 120px 0;
+}
+
+.projects__content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.projects__title {
+	font-size: 2.25rem;
+	margin-bottom: 3.25rem;
+}
+
+
+.projects {
+	&__tags, &__link {
+		margin-bottom: 20px;
+	}
+}
+
+.projects__about {
+	margin-bottom: 3rem;
+}
+
+.projects__visuals {
+	margin-right: 4.375rem;
+    width: 75%;
+}
+
+.projects__data {
+	width: 40%;
+}
+
+.projects__info {
+	opacity: .7;
+}
+
+.projects__tags {
+	display: flex;
+}
+
+.tags__item {
+	margin-right: 10px;
+	padding: 0.7rem 1.5rem;
+	background-color: rgba(#859ec2, .1);
+	border-radius: 22px;
+	
+	&:hover {
+		.tags__link {
+			color: $href;
+		}
+	}
+}
+
+.tags__link {
+	color: $font;
+	opacity: .7;
+	font-size: 15px;
+  	font-weight: 600;
+}
+
+
+.iconed-link {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		height: 15px;
+		width: 15px;
+		fill: $href;
+	}
+
+	&__image {
+		margin-right: 5px;
+	}
+}
+
+.projects__link:hover {
+	.iconed-link__icon {
+		fill: $font;
+	}
+
+	.iconed-link__text {
+		color: $font;
+	}
+}
+
+.projects__visuals {
+	position: relative;
+}
+
+.projects__visuals:after {
+	content: "";
+	position: absolute;
+	right: -120px;
+	top: 20px;
+	width: 212px;
+	height: 290px;
+	z-index: -1;
+  	background-image: url("~images/backgrounds/number-2.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.slider {
+	display: flex;
+	align-items: flex-end;
+}

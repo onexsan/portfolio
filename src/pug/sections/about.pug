@@ -1,0 +1,32 @@
+section.section.about(id="about")
+	.container.about__container
+		.about__info
+			.personal-info
+				.personal-info__avatar
+					.avatar
+						+image("content/avatar.jpg", "avatar__image")
+				.personal-info__data
+					table.table__list
+						tr
+							- var data = ["Проживаю:", "Санкт-Петербург"]
+							each item in data
+								td.table__item
+									p= item
+						tr
+							- var data = ["Возраст:", "23 года"]
+							each item in data
+								td.table__item
+									p= item
+						tr
+							- var data = ["Родилась:", "29 января 1997"]
+							each item in data
+								td.table__item
+									p= item
+		.about__desc
+			p.about__hello Привет, меня зовут
+			h2.about__title Виктория Филилеева
+			p.about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+			.about__ps 
+				.about__ps-image
+					+icon("asterisk", "about__icon")
+				p.about__ps-text Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!

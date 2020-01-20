@@ -4,5 +4,9 @@
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
-  "bp-phones": "480px"
+  "bp-phones": "480px",
+  "main": "#ff9a00",
+  "font": "#2d3c4e",
+  "footer": "#1b1f22",
+  "href": "#4b6fd7"
 }
