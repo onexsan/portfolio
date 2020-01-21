@@ -5,3 +5,11 @@ mixin icon(name, className)
 
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
+
+mixin social(socialClassName, listClassName, itemClassName, iconAreaClassName, iconClassName, ...items)
+  div(class=socialClassName)
+    ul(class=listClassName)
+      each item in items
+        li(class=itemClassName)
+          div(class=iconAreaClassName)
+            +icon(item, iconClassName)
