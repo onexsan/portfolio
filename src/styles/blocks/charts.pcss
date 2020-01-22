@@ -4,8 +4,19 @@
 }
 
 .donut-segment {
-  stroke: linear-gradient(to right bottom, #ea7400, #ec7c00, #ee8400, #f08c00, #f29400);
-  stroke-width: 3;
+  transform: rotate(180deg);
+            transform-origin: 50% 50%;
+            animation: skillProgress 100s linear infinite;
+            animation-play-state: paused;
+}
+
+@keyframes skillProgress {
+    0% {
+        stroke-dashoffset: 502;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
 
 .chart-text {

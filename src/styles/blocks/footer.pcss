@@ -6,17 +6,20 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding: 5.65rem 2.125rem 0 2.125rem;
+	padding: 5.65rem 0.125rem 0;
 }
 
 .footer__left {
-	width: 30%;
-    margin-right: 6.375rem;
+	display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-right: 4.375rem;
 }
 
 .footer__menu {
 	display: flex;
 	flex-direction: column;
+	width: 80%;
 	
 	&-row {
 		display: flex;
@@ -60,7 +63,7 @@
 }
 
 .footer__copyright {
-	margin-bottom: 1rem;
+	width: 50%;
 
 	&-text {
 		font-size: 48px;
@@ -69,6 +72,10 @@
 		opacity: .1;
 		line-height: 1;
 	}
+}
+
+.footer__author {
+	width: 44%;
 }
 
 .footer__quote-author {

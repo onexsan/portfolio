@@ -14,11 +14,11 @@ section.section.skills(id="skills")
 								li.skills-row__item
 									.skill
 										svg.donut(width='100%' height='100%' viewbox='0 0 42 42')
-											defs
-												lineargradient#donut-gradient(x1='0' y1='0' x2='1' y2='1')
-													stop(offset='0%' stop-color='#ea7400')
-													stop(offset='50%' stop-color='#f29400')
 											circle.donut-ring(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke='rgba(255,255,255,.1)' stroke-width='1')
-											circle.donut-segment(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke='url(#donut-gradient)' stroke-width='3' stroke-dasharray='35 65' stroke-dashoffset='25')
+											circle.donut-segment(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke='url(#gradient)' stroke-width='3' stroke-dasharray='35 65' stroke-dashoffset='25' style=`animation-delay: -5s`)
 											g.chart-text
 												text.chart-desc(x='50%' y='50%') #{skill}
+			svg(style="width:0; height:0; position: absolute;" aria-hidden="true")
+				linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+					stop(offset="0%" stop-color='#d0731b')
+					stop(offset="100%" stop-color='#dc9322') 
