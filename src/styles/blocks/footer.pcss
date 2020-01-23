@@ -6,21 +6,28 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding: 5.375rem 3.125rem;
+	padding: 5.65rem 0.125rem 0;
 }
 
 .footer__left {
-	width: 30%;
-    margin-right: 5.375rem;
+	display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-right: 4.375rem;
 }
 
 .footer__menu {
 	display: flex;
 	flex-direction: column;
+	width: 80%;
 	
 	&-row {
 		display: flex;
 	}
+}
+
+.footer__menu-row {
+	margin-bottom: 3.125rem;
 }
 
 .footer__about {
@@ -45,7 +52,7 @@
   	font-weight: bold;
 	color: white;
 	text-transform: uppercase;
-	margin-bottom: 20px;
+	margin-bottom: 1.2rem;
 }
 
 .footer__author-desc {
@@ -56,7 +63,7 @@
 }
 
 .footer__copyright {
-	margin-bottom: 0.5rem;
+	width: 50%;
 
 	&-text {
 		font-size: 48px;
@@ -67,6 +74,10 @@
 	}
 }
 
+.footer__author {
+	width: 44%;
+}
+
 .footer__quote-author {
 	font-size: 16px;
 	font-weight: normal;
@@ -75,11 +86,10 @@
 }
 
 .footer__nav {
-	margin-bottom: 50px;
-	width: 100%;
+	width: 85%;
 
 	.nav__list {
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 }
 

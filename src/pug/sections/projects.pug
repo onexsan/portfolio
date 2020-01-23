@@ -7,12 +7,25 @@ section.section.projects(id="projects")
 					.slider__picture
 						.slider__preview
 							+image("content/preview-1.jpg", "slider__image")
-					.slider__btns
-						.slider-btn
-							button.slider-btn__item
-								+icon("short-arrow","slider-btn__icon slider-btn__icon--left")
-							button.slider-btn__item.slider-btn__item--inactive(disabled)
-								+icon("short-arrow","slider-btn__icon slider-btn__icon--right")
+						
+					.sluder__controls
+						.slider__row
+							.slider__row-item.slider__row-item--active
+								a.slider__row-link(href="#")
+									+image("content/preview-2.jpg", "slider__row-image")
+							.slider__row-item
+								a.slider__row-link(href="#")
+									+image("content/preview-3.jpg", "slider__row-image")
+							.slider__row-item
+								a.slider__row-link(href="#")
+									+image("content/preview-4.jpg", "slider__row-image")
+							
+						.slider__btns
+							.slider-btn
+								button.slider-btn__item
+									+icon("short-arrow","slider-btn__icon slider-btn__icon--left")
+								button.slider-btn__item.slider-btn__item--inactive(disabled)
+									+icon("short-arrow","slider-btn__icon slider-btn__icon--right")
 			.projects__data
 				.projects__desc
 					.projects__tags

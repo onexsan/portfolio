@@ -1,3 +1,24 @@
+.donut {
+  width: 160px;
+  height: 160px;
+}
+
+.donut-segment {
+  transform: rotate(180deg);
+            transform-origin: 50% 50%;
+            animation: skillProgress 100s linear infinite;
+            animation-play-state: paused;
+}
+
+@keyframes skillProgress {
+    0% {
+        stroke-dashoffset: 502;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
 .chart-text {
 	 font-size: 8px;
   font-weight: bold;
