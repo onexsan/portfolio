@@ -11,7 +11,18 @@ html(lang="en")
     .wrapper
       .welcome-section
         .parallax
-          +image("backgrounds/bg-train.jpg", "parallax__image")
+          .parallax__layer.parallax__layer--sky(data-speed="0.1")
+            +image("backgrounds/parallax-1.png", "parallax__image")
+          .parallax__layer.parallax__layer--hills(data-speed="0.3")
+            +image("backgrounds/parallax-2.png", "parallax__image")
+          .parallax__layer.parallax__layer--train(data-speed="0.5")
+            +image("backgrounds/parallax-3.png", "parallax__image")
+          .parallax__layer.parallax__layer--field(data-speed="0.7")
+            +image("backgrounds/parallax-4.png", "parallax__image")
+          .parallax__layer.parallax__layer--t-gradient(data-speed="0.8")
+            .parallax__darker-layer
+          .parallax__layer.parallax__layer--b-gradient(data-speed="0.9")
+            +image("backgrounds/parallax-5.png", "parallax__image")
         include ./pug/sections/hero
         include ./pug/sections/about
       .between-section

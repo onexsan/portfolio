@@ -14,6 +14,10 @@
 	margin-right: 4.25rem;
 	color: white;
 	width: 40%;
+
+	@include tablets {
+		margin-right: 1rem;
+	}
 }
 
 .personal-info {
@@ -40,6 +44,12 @@
 	}
 	&__hello, &__ps, &__text {
 		opacity: .5;
+	}
+}
+
+.about__text {
+	@include tablets {
+		margin-bottom: 2rem;
 	}
 }
 

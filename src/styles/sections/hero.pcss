@@ -8,37 +8,88 @@
 }
 
 .hero__container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 80px 1fr 50px;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		"header"
+		"content"
+		"btns";
+	align-items: space-between;
+	justify-items: center;
+
+	@include tablets {
+		grid-template-rows: 80px 1fr;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"header"
+			"content";
+		align-items: space-between;
+		justify-items: center;
+	}
+		
 }
 
 .hero__content {
+	
 	display: flex;
 	justify-content: center;
+	align-items:  center;
 } 
 
 .hero__btns {
+	
 	display: flex;
 	justify-content: center;
 	color: white;
 	font-size: 18px;
   	font-weight: 600;
 	margin-bottom: 20px;
+
+	@include tablets {
+		display: none;
+	}
 } 
 
 .admin-info {
-	display: flex;
-	justify-content: center;
-	color: white;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 
+		"left right";
+
+	align-items: start;
+    justify-content: center;
+    color: white;
+
+	@include tablets {
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr;
+		grid-template-areas: 
+			"top"
+			"bottom";
+		align-items: center;
+   		justify-items: center;
+	}
 }
 
 .admin-info__desc {
+	grid-area: left;
+	justify-self: end;
+
+	@include tablets {
+		grid-area: top;
+		justify-self: center;
+    	text-align: center;
+		margin-right: 0;
+	}
+
 	p {
 		font-size: 18px;
 	}
-	width: 20%;
+
+	width: 30%;
 	text-align: right;
 	font-size: 18px;
   	font-weight: 600;
@@ -49,5 +100,11 @@
 }
 
 .admin-info__name {
-	width: 40%;
+	grid-area: right;
+
+	@include tablets {
+		grid-area: bottom;
+		justify-self: center;
+    	text-align: center;
+	}
 }
