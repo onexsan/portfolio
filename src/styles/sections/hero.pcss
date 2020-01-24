@@ -6,33 +6,23 @@
 .hero__title {
 	font-size: 4.5rem;
 
+	@include tablets {
+		font-size: 50px;
+	}
+
 	@include phones {
-		font-size: 36px;
+		width: 100%;
+		font-size: 42px;
 	}
 }
 
 .hero__container {
 	height: 100%;
-	display: grid;
-	grid-template-rows: 80px 1fr 50px;
-	grid-template-columns: 1fr;
-	grid-template-areas:
-		"header"
-		"content"
-		"btns";
-	align-items: space-between;
-	justify-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 
-	@include tablets {
-		grid-template-rows: 80px 1fr;
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			"header"
-			"content";
-		align-items: space-between;
-		justify-items: center;
-	}
-		
 }
 
 .hero__content {
@@ -51,46 +41,42 @@
   	font-weight: 600;
 	margin-bottom: 20px;
 
+}
+
+.scroll-down {
 	@include tablets {
 		display: none;
 	}
-} 
+}
 
 .admin-info {
-	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas: 
-		"left right";
-
-	align-items: start;
-    justify-content: center;
-    color: white;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	color: white;
 
 	@include tablets {
-		grid-template-rows: 1fr 1fr;
-		grid-template-columns: 1fr;
-		grid-template-areas: 
-			"top"
-			"bottom";
+		flex-direction: column;
 		align-items: center;
-   		justify-items: center;
+		justify-content: center;
 	}
 }
 
 .admin-info__desc {
-	grid-area: left;
-	justify-self: end;
+	
+	
+	width: 20%;
 
 	@include tablets {
-		grid-area: top;
-		justify-self: center;
+		min-width: 144px;
+		min-height: 59px;
+		width: 30%;
     	text-align: center;
 		margin-right: 0;
 	}
 
 	@include phones {
-		width: 70%;
+		width: 30%;
 	}
 
 	p {
@@ -101,7 +87,7 @@
 		}
 	}
 
-	width: 30%;
+	
 	text-align: right;
 	font-size: 18px;
   	font-weight: 600;
@@ -112,11 +98,20 @@
 }
 
 .admin-info__name {
-	grid-area: right;
+	
+	width: 40%;
 
 	@include tablets {
-		grid-area: bottom;
-		justify-self: center;
+		
+		
     	text-align: center;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		width: 50%;
+	}
+
+	@include phones {
+		width: 100%;
 	}
 }

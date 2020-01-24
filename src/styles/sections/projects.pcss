@@ -10,6 +10,7 @@
 
 	@include phones {
 		padding: 90px 0;
+		width: 100%;
 	}
 }
 
@@ -29,7 +30,7 @@
     margin-bottom: 4rem;
 
 	@include tablets {
-		margin-bottom: 50px;
+		margin-bottom: 3.6rem;
 	}
 
 	@include phones {
@@ -57,6 +58,7 @@
 
 	@include phones {
 		width: 100%;
+		padding: 1.2rem;
 	}
 }
 
@@ -140,7 +142,7 @@
 
 	@include tablets {
 		width: 100%;
-    	margin-bottom: 60px;
+		margin-bottom: 4.9rem;
 	}
 
 	@include phones {
@@ -204,14 +206,21 @@
 }
 
 .projects__name {
-	@include tablets {
-		margin-bottom: 30px;
-	}
 
+	text-align: left;
+	
+	@include tablets {
+		text-align: center;
+		margin-bottom: 30px;
+		font-size: 30px;
+	}
+	
+}
+
+.projects__name {
 	@inlcude phones {
-		width: 100%;
-		font-size: 24px;
 		text-align: left;
+		
 	}
 }
 

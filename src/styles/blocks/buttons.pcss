@@ -34,6 +34,10 @@
 		background-image: linear-gradient(to right, #ff9d00, #ff9d00, #ff9d00, #ff9d00, #ff9d00);;
 	}
 
+	@include tablets {
+		padding: 1.9rem 8.5rem;
+	}
+
 	@include phones {
 		padding: 24px 80px;
 	}
@@ -67,6 +71,7 @@
 	align-items: center;
 	justify-content: center;
 	margin-right: 1.25rem;
+	z-index: 10;
 
 	&:last-child {
 		margin-right: 0;
@@ -94,6 +99,7 @@
 
 .double-btn {
 	display: flex;
+	
 }
 
 
