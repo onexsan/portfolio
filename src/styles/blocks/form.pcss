@@ -1,5 +1,10 @@
 .form__container {
   width: 75%;
+  z-index: 10;
+
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .contact__form-input:focus + .contact__form-label::before {
@@ -30,6 +35,7 @@
 	width: 100%;
 	height: 120px;
 	resize: none;
+  overflow: hidden;
 
   &:focus {
     outline: 1px solid orange;
@@ -39,9 +45,13 @@
 
 .contact__form-block {
 	display: flex;
-    flex-direction: column-reverse;
+  flex-direction: column-reverse;
   margin-right: 80px;
 	width: 100%;
+
+  @include tablets {
+    margin-right: 20px;
+  }
 
 	&:last-child {
 		margin-right: 0;
@@ -51,6 +61,15 @@
 .contact__form-row {
   display: flex;
 	margin-bottom: 3.5rem;
+
+  @include tablets {
+    margin-bottom: 30px;
+  }
+
+  @include phones {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
 	
 	&:last-child {
 		margin-bottom: 0;
@@ -60,6 +79,16 @@
 
 .contact__form-block {
   position: relative;
+
+  &--name {
+    margin-right: 95px;
+
+    @include phones {
+      margin-right: 0;
+      margin-bottom: 35px;
+    }
+    
+  }
 }
 
 .contact__form-label {
@@ -106,4 +135,8 @@
   background-position: center;
   background-size: contain;
   opacity: .3;
+}
+
+.contact__form-row--button {
+  justify-content: center;
 }

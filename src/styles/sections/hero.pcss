@@ -5,6 +5,10 @@
 
 .hero__title {
 	font-size: 4.5rem;
+
+	@include phones {
+		font-size: 36px;
+	}
 }
 
 .hero__container {
@@ -85,8 +89,16 @@
 		margin-right: 0;
 	}
 
+	@include phones {
+		width: 70%;
+	}
+
 	p {
 		font-size: 18px;
+
+		@include phones {
+			font-size: 14px;
+		}
 	}
 
 	width: 30%;

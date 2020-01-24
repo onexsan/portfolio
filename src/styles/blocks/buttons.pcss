@@ -33,6 +33,10 @@
 	&:hover {
 		background-image: linear-gradient(to right, #ff9d00, #ff9d00, #ff9d00, #ff9d00, #ff9d00);;
 	}
+
+	@include phones {
+		padding: 24px 80px;
+	}
 }
 
 .slider-btn__item {
@@ -80,6 +84,12 @@
 .slider-btn {
 	display: flex;
 	flex-direction: column;
+
+	@include phones {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
 }
 
 .double-btn {

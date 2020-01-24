@@ -1,36 +1,31 @@
-var parallax = (function () {
-	var sky = document.querySelector('.parallax__layer--sky');
-	var hills = document.querySelector('.parallax__layer--hills');
-	var train = document.querySelector('.parallax__layer--train');
-	var field = document.querySelector('.parallax__layer--field');
-	var topGradient = document.querySelector('.parallax__layer--t-gradient');
-	var bottomGradient = document.querySelector('.parallax__layer--b-gradient');
+(function parallax() {
+	let parallax = document.querySelectorAll('.parallax');
+	let windowWidth = null;
 
-	return {
-		move: function (block, windowScroll, strafeAmount) {
-			var strafe = windowScroll / -strafeAmount + '%';
-			var transformString = 'translate3d(0,' + strafe + ',0)';
+	function moveLayersDependsOnScroll(parallax, percent) {
+		const windowOffset = window.pageYOffset;
+		const parallaxOffsetTop = parallax.parentElement.offsetTop;
+		const parallaxOffsetBottom = parallaxOffsetTop + parallax.clientHeight;
+		const scroll = windowOffset - parallaxOffsetTop + (window.innerHeight / 100 * percent);
 
-			var style = block.style;
+		if (windowOffset >= parallaxOffsetTop - (window.innerHeight / 2) && windowOffset <= parallaxOffsetBottom) {
+			[...parallax.children].forEach(layer => {
+				const divider = layer.dataset.speed;
+				const strafe = scroll * divider / 10;
 
-			style.transform = transformString;
-			style.webkitTransform = transformString;
-		},
-
-		init: function (wScroll) {
-			this.move(sky, wScroll, 55);
-			this.move(hills, wScroll, 45);
-			this.move(train, wScroll, 30);
-			this.move(field, wScroll, 15);
-			this.move(topGradient, wScroll, 5);
-			this.move(bottomGradient, wScroll, 3);
+				layer.style.transform = `translateY(-${strafe}%) translateZ(0)`;
+			});
 		}
 	}
-}());
 
-window.onscroll = function () {
-	var wScroll = window.pageYOffset;
-	parallax.init(wScroll);
+	if (windowWidth > 768) {
+		[...parallax].forEach(parallax => {
+			const percent = parallax.dataset.percent || 0;
 
-	console.log(wScroll);
-}
+
+			window.addEventListener('scroll', () => {
+				moveLayersDependsOnScroll(parallax, percent);
+			});
+		});
+	}
+})();
