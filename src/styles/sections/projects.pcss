@@ -250,7 +250,6 @@
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-
 	
 }
 
@@ -259,6 +258,16 @@
 		border: 3px solid orange;
 	}
 }
+
+.slider__row-link {
+	&:focus {
+		.slider__row-image {
+			outline: 1px solid orange;
+		}
+		
+	}
+}
+
 
 .slider__row-item--active:hover {
 	.slider__row-image {
