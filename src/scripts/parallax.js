@@ -1,31 +1,54 @@
-(function parallax() {
-	let parallax = document.querySelectorAll('.parallax');
-	let windowWidth = null;
+console.log("parallax in action");
 
-	function moveLayersDependsOnScroll(parallax, percent) {
-		const windowOffset = window.pageYOffset;
-		const parallaxOffsetTop = parallax.parentElement.offsetTop;
-		const parallaxOffsetBottom = parallaxOffsetTop + parallax.clientHeight;
-		const scroll = windowOffset - parallaxOffsetTop + (window.innerHeight / 100 * percent);
+// var parallax = (function () {
+// 	var sky = document.querySelector('.parallax__layer--sky');
+// 	var hills = document.querySelector('.parallax__layer--hills');
+// 	var train = document.querySelector('.parallax__layer--train');
+// 	var field = document.querySelector('.parallax__layer--field');
+// 	var gradient = document.querySelector('.parallax__layer--gradient');
 
-		if (windowOffset >= parallaxOffsetTop - (window.innerHeight / 2) && windowOffset <= parallaxOffsetBottom) {
-			[...parallax.children].forEach(layer => {
-				const divider = layer.dataset.speed;
-				const strafe = scroll * divider / 10;
+// 	return {
+// 		move: function (block, windowScroll, strafeAmount) {
+// 			var strafe = windowScroll / -strafeAmount + '%';
+// 			var transformString = 'translate3d(0,' + strafe + ',0)';
 
-				layer.style.transform = `translateY(-${strafe}%) translateZ(0)`;
-			});
-		}
-	}
+// 			var style = block.style;
 
-	if (windowWidth > 768) {
-		[...parallax].forEach(parallax => {
-			const percent = parallax.dataset.percent || 0;
+// 			style.transform = transformString;
+// 			style.webkitTransform = transformString;
+// 		},
 
+// 		init: function (wScroll) {
+// 			this.move(sky, wScroll, 45);
+// 			this.move(hills, wScroll, 35);
+// 			this.move(train, wScroll, 25);
+// 			this.move(field, wScroll, 15);
+// 			this.move(gradient, wScroll, 5);
+// 		}
+// 	}
 
-			window.addEventListener('scroll', () => {
-				moveLayersDependsOnScroll(parallax, percent);
-			});
-		});
-	}
-})();
+// }());
+
+// window.onscroll = function () {
+// 	var wScroll = window.pageYOffset;
+
+// 	parallax.init(wScroll);
+// }
+
+const parallax = document.querySelector('.parallax');
+
+const layers = parallax.children;
+
+function moveLayersDependsOnScroll(wScroll) {
+	Array.from(layers).forEach(layer => {
+		const divider = layer.dataset.speed;
+		const strafe = wScroll * divider / 10;
+
+		layer.style.transform = `translateY(-${strafe}%)`;
+	})
+};
+
+window.addEventListener('scroll', e => {
+	const wScroll = window.pageYOffset;
+	moveLayersDependsOnScroll(wScroll);
+});

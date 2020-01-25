@@ -2,40 +2,63 @@ include ./mixins.pug
 
 <!DOCTYPE html>
 html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio | Главная
-  body
-    .wrapper
-      .welcome-section
-        .parallax
-          .parallax__layer
-            +image("backgrounds/bg-train.jpg", "parallax__image")
-          //- .parallax__layer.parallax__layer--sky(data-speed="0.1")
-          //-   +image("backgrounds/parallax-1.png", "parallax__image")
-          //- .parallax__layer.parallax__layer--hills(data-speed="0.3")
-          //-   +image("backgrounds/parallax-2.png", "parallax__image")
-          //- .parallax__layer.parallax__layer--train(data-speed="0.5")
-          //-   +image("backgrounds/parallax-3.png", "parallax__image")
-          //- .parallax__layer.parallax__layer--field(data-speed="0.7")
-          //-   +image("backgrounds/parallax-4.png", "parallax__image")
-          //- .parallax__layer.parallax__layer--t-gradient(data-speed="0.8")
-          //-   .parallax__darker-layer
-          //- .parallax__layer.parallax__layer--b-gradient(data-speed="0.9")
-          //-   +image("backgrounds/parallax-5.png", "parallax__image")
-        include ./pug/sections/hero
-        include ./pug/sections/about
-      .between-section
-        .between-item
-          +image("backgrounds/bg-dark.png", "between-image")
-      include ./pug/sections/skills
-      include ./pug/sections/projects
-      .final-section
-        .final-section__wrapper
-          +image("backgrounds/bg-road.png", "final-section__image")
-        include ./pug/sections/reviews
-        include ./pug/sections/contact
-      include ./pug/sections/footer
-      include ./templates/entry.pug
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Portfolio | Главная
+	body
+		.wrapper
+			.welcome-section
+				//- .bg-train
+					- 
+						var 
+							train320 = `
+								${require('./images/backgrounds/bg-768@1x.png')} 1x,
+								${require('./images/backgrounds/bg-768@2x.png')} 2x,
+								${require('./images/backgrounds/bg-768@3x.png')} 3x
+							`;
+					- 
+						var 
+							train768 = `
+								${require('./images/backgrounds/bg-768@1x.png')} 1x,
+								${require('./images/backgrounds/bg-768@2x.png')} 2x,
+								${require('./images/backgrounds/bg-768@3x.png')} 3x
+							`;
+					- 
+						var 
+							biggerTrain = `
+								${require('./images/backgrounds/bg-train.jpg')}
+							`;
+					picture
+						source(srcset=train320 media="(max-width:320px)" class="parallax__image")
+						source(srcset=train768 media="(max-width:768px)" class="parallax__image")
+						source(srcset=biggerTrain media="(max-width:1800px)" class="parallax__image")
+						img(class="parallax__image" src="" alt="")
+
+				.parallax
+					.parallax__layer.parallax__layer--sky(data-speed="0.1")
+						+image("backgrounds/1200-parallax-1@2x.png", "parallax__image")
+					.parallax__layer.parallax__layer--hills(data-speed="0.3")
+						+image("backgrounds/1200-parallax-2@2x.png", "parallax__image")
+					.parallax__layer.parallax__layer--train(data-speed="0.5")
+						+image("backgrounds/1200-parallax-3@2x.png", "parallax__image")
+					.parallax__layer.parallax__layer--field(data-speed="0.7")
+						+image("backgrounds/1200-parallax-4@2x.png", "parallax__image")
+					.parallax__layer.parallax__layer--gradient(data-speed="0.9")
+						+image("backgrounds/1200-parallax-5@2x.png", "parallax__image")
+					
+				include ./pug/sections/hero
+				include ./pug/sections/about
+			.between-section
+				.between-item
+					+image("backgrounds/bg-dark.png", "between-image")
+			include ./pug/sections/skills
+			include ./pug/sections/projects
+			.final-section
+				.final-section__wrapper
+					+image("backgrounds/bg-road.png", "final-section__image")
+				include ./pug/sections/reviews
+				include ./pug/sections/contact
+			include ./pug/sections/footer
+			include ./templates/entry.pug
