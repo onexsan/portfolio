@@ -1,0 +1,59 @@
+script(type="text/x-template")#reviews-widget
+
+	carousel.reviews__slider-container(:scrollPerPage="true" :navigationEnabled="true" :perPageCustom="[[280, 1], [320, 1], [580, 1], [590, 2], [768, 2], [790, 2], [950, 2], [1300, 2], [1800, 2]]")
+		slide.reviews__item-container
+			.reviews__item
+				.reviews__image
+				.reviews__content
+					.reviews__desc
+						p.reviews__text Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+					.reviews__author
+						.author__pic
+							.author__avatar
+								.avatar
+									+image("content/review-1.png", "author__image")
+						.author__desc
+							p.author__name Ковальчук Дмитрий
+							p.author__info Основатель LoftSchool
+		slide.reviews__item-container
+			.reviews__item
+				.reviews__image
+				.reviews__content
+					.reviews__desc
+						p.reviews__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
+					.reviews__author
+						.author__pic
+							.author__avatar
+								.avatar
+									+image("content/review-2.png", "author__image")
+						.author__desc
+							p.author__name Сабанцев Владимир
+							p.author__info Основатель LoftSchool
+		slide.reviews__item-container
+			.reviews__item
+				.reviews__image
+				.reviews__content
+					.reviews__desc
+						p.reviews__text Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+					.reviews__author
+						.author__pic
+							.author__avatar
+								.avatar
+									+image("content/review-1.png", "author__image")
+						.author__desc
+							p.author__name Ковальчук Дмитрий 3
+							p.author__info Основатель LoftSchool
+		slide.reviews__item-container
+			.reviews__item
+				.reviews__image
+				.reviews__content
+					.reviews__desc
+						p.reviews__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
+					.reviews__author
+						.author__pic
+							.author__avatar
+								.avatar
+									+image("content/review-2.png", "author__image")
+						.author__desc
+							p.author__name Сабанцев Владимир 4
+							p.author__info Основатель LoftSchool

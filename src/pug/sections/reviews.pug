@@ -9,25 +9,4 @@ section.section.reviews(id="reviews")
 					button.double-btn__item
 						+icon("short-arrow","double-btn__icon double-btn__icon--right")
 		.reviews__slider
-			.reviews__item
-				.reviews__desc
-					p.reviews__text Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-				.reviews__author
-					.author__pic
-						.author__avatar
-							.avatar
-								+image("content/review-1.png", "author__image")
-					.author__desc
-						p.author__name Ковальчук Дмитрий
-						p.author__info Основатель LoftSchool
-			.reviews__item.reviews__item--inactive
-				.reviews__desc
-					p.reviews__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-				.reviews__author
-					.author__pic
-						.author__avatar
-							.avatar
-								+image("content/review-2.png", "author__image")
-					.author__desc
-						p.author__name Сабанцев Владимир
-						p.author__info Преподаватель
+			#reviews-component
