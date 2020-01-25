@@ -245,8 +245,23 @@
 	}
 }
 
+
 .slider__row-image {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+
+	
+}
+
+.slider__row-link:hover {
+	.slider__row-image {
+		border: 3px solid orange;
+	}
+}
+
+.slider__row-item--active:hover {
+	.slider__row-image {
+		border: none;
+	}
 }
