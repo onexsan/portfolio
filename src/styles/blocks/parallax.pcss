@@ -1,14 +1,3 @@
-/* .bg-train {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-} */
 
 .parallax {
   position: absolute;
@@ -17,17 +6,14 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
-  z-index: 10;
-
-
+  
 }
 
 .parallax__image {
 	position: absolute;
 	object-fit: contain;
-  	
+  	width: 100%;
 }
 
 .parallax__layer {
@@ -51,52 +37,50 @@
 	  left: 0;
 	  right: 0;
 
-		@media screen and (max-width: 1160px) {
-			top: 17%;
-		}
-
-		@media screen and (max-width: 940px) {
-			top: 13%;
-		}
 	}
   }
 
   &:nth-child(3) {
 	.parallax__image {
-	  bottom: 35%;
+	 	bottom: 40%;
 
-	 @media screen and (max-width: 1160px) {
-			 bottom: 45%;
-		}
-
-	@media screen and (max-width: 960px) {
-			bottom: 50%;
-		}
-	}
+  	}
   }
 
   &:nth-child(4) {
 	.parallax__image {
-	  bottom: 0;
+	  bottom: 10%;
 
-	  @media screen and (max-width: 1160px) {
-			bottom: 15%;
+		@media screen and (min-width: 1400px) {
+			bottom: 5%;
 		}
 
-		@media screen and (max-width: 1000px) {
-			bottom: 17%;
+		@media screen and (min-width: 1800px) {
+			bottom: 0;
 		}
 
-		@media screen and (max-width: 960px) {
-			bottom: 25%;
-		}
 	}
   }
 
-  &:nth-child(5) {
-	.parallax__image {
-	  bottom: 0;
-	}
-  }
   
+}
+
+.parallax__gradient {
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+	height: 50%;
+	background: linear-gradient(0deg, rgba(27,31,34,1) 0%, rgba(27,31,34,0.2137897395286239) 87%, rgba(27,31,34,0) 100%);
+
+	@media screen and (min-width: 1400px) {
+			bottom: 5%;
+		}
+
+	@media screen and (min-width: 1400px) {
+			bottom: 0;
+		}
+	
+	@media screen and (max-width: 1199px) {
+		display: none;
+	}
 }
