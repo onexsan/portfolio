@@ -2,11 +2,13 @@ section.section.reviews(id="reviews")
 	.container.reviews__container
 		.reviews__intro
 			h3.section__title.reviews__title Что обо мне говорят
-			.double-btns
-				.double-btn
-					button.double-btn__item.double-btn__item--inactive(disabled) 
-						+icon("short-arrow","double-btn__icon double-btn__icon--left")
-					button.double-btn__item
-						+icon("short-arrow","double-btn__icon double-btn__icon--right")
+			.reviews__control-panel 
+				ul.reviews-controls
+					li.reviews-controls__item(@click="prev")
+						button.control-btn 
+							+icon("short-arrow","control-btn__icon control-btn__icon--left")
+					li.reviews-controls__item(@click="next")
+						button.control-btn
+							+icon("short-arrow","control-btn__icon control-btn__icon--right")
 		.reviews__slider
 			#reviews-component

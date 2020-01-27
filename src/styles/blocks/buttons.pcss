@@ -61,7 +61,7 @@
 	}
 }
 
-.double-btn__item {
+.control-btn  {
 	background-color: transparent;
 	border: 1px solid white;
 	border-radius: 50%;
@@ -97,20 +97,20 @@
 	}
 }
 
-.double-btn {
+.reviews-controls {
 	display: flex;
 	
 }
 
 
-.slider-btn__icon--left, .double-btn__icon--left {
+.slider-btn__icon--left, .control-btn__icon--left {
 	height: 10px;
 	width: 10px;
 	fill: white;
 	transform: rotate(180deg);
 }
 
-.slider-btn__icon--right, .double-btn__icon--right {
+.slider-btn__icon--right, .control-btn__icon--right {
 	height: 10px;
 	width: 10px;
 	fill: white;
@@ -126,8 +126,8 @@
 	}
 }
  
-.double-btn__item--inactive {
-	.double-btn__icon {
+.control-btn--inactive {
+	.control-btn__icon {
 		fill: gray;
 	}
 	
@@ -136,6 +136,10 @@
 	&:hover {
 		opacity: 1;
 	}
+}
+
+.reviews-controls__item {
+	margin-right: 15px;
 }
 
 .VueCarousel-navigation {
