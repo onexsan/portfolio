@@ -18,11 +18,9 @@ new Vue({
 	methods: {
 		prev() {
 			document.querySelector('.VueCarousel-navigation-prev').click();
-			console.log("click");
 		},
 		next() {
 			document.querySelector('.VueCarousel-navigation-next').click()
-			console.log("click");
 		}
 	}
 });
