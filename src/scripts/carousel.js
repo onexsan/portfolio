@@ -1,15 +1,14 @@
 import Vue from 'vue';
 import { Carousel, Slide } from 'vue-carousel';
 
-new Vue({
-	el: "#reviews-component",
+const ReviewsCarousel = {
 	template: "#reviews-widget",
 	components: {
 		Carousel,
 		Slide
 	}
 
-});
+};
 
 new Vue({
 	el: '.reviews__container',
