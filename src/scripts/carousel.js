@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { Carousel, Slide } from 'vue-carousel';
+import EventBus from "./event";
 
 const ReviewsCarousel = {
 	template: "#reviews-widget",
