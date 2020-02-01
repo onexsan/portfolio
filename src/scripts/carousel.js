@@ -4,9 +4,7 @@ import EventBus from "./event.js";
 
 const reviewsItem = {
 	template: "#reviews-item",
-	props: {
-		review: Object
-	}
+	props: ["review"]
 };
 
 const ReviewsCarousel = {
@@ -44,21 +42,19 @@ const ReviewsCarousel = {
 
 			window.addEventListener('resize', calc);
 		},
-		// disableButton() {
-		// 	const originalPrev = document.querySelector('.VueCarousel-navigation-prev');
-		// 	const originalNext = document.querySelector('.VueCarousel-navigation-next');
-		// 	const customPrev = document.querySelector('.control-btn--prev');
-		// 	const customNext = document.querySelector('.control-btn--next');
-		// 	if (originalPrev.classList.contains('VueCarousel-navigation--disabled')) {
-		// 		customPrev.setAttribute("disabled", "disabled");
-		// 	}
-		// 	if (originalNext.classList.contains('VueCarousel-navigation--disabled')) {
-		// 		customNext.setAttribute("disabled", "disabled");
-		// 	}
+		// makeArrWithRequiredImages(data) {
+		// 	return data.map(item => {
+		// 		const requiredPic = require(`../images/content/${item.photo}`);
+		// 		item.photo = requiredPic;
+
+		// 		return item;
+		// 	})
 		// }
+
 	},
 	created() {
 		const data = require("../data/reviews.json");
+		// this.reviews = this.makeArrWithRequiredImages(data);
 		this.reviews = data;
 	},
 	mounted() {

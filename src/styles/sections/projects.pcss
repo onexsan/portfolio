@@ -14,7 +14,7 @@
 	}
 }
 
-.projects__content {
+.projects__slider {
 	display: flex;
 	justify-content: space-between;
 
@@ -180,7 +180,7 @@
 	}
 }
 
-.slider {
+.slider__content {
 	display: flex;
 	align-items: flex-end;
 }
@@ -225,8 +225,6 @@
 }
 
 .slider__row {
-	display: flex;
-	justify-content: flex-end;
 	position: absolute;
 	left: 5.5rem;
 	margin-bottom: 35px;
@@ -235,6 +233,11 @@
 	@include phones {
 		display: none;
 	}
+}
+
+.slider__row-list {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .slider__row-item {

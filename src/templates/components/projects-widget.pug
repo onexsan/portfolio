@@ -1,0 +1,61 @@
+script(type="text/x-template")#projects-widget
+	.projects__slider
+		display(
+			:works="works"
+		)
+		info
+
+script(type="text/x-template")#projects-display
+	.projects__visuals
+		.slider__content
+			
+			.slider__picture
+				.slider__preview
+					img.slider__image(:src="works[0].photo", alt="")
+				
+			.slider__controls
+				.slider__row
+					thumbs
+					
+				.slider__btns
+					btns
+
+script(type="text/x-template")#projects-thumbs
+	.slider__row-list
+		.slider__row-item.slider__row-item--active
+			a.slider__row-link(href="#")
+				+image("content/preview-2.jpg", "slider__row-image")
+		.slider__row-item
+			a.slider__row-link(href="#")
+				+image("content/preview-3.jpg", "slider__row-image")
+		.slider__row-item
+			a.slider__row-link(href="#")
+				+image("content/preview-4.jpg", "slider__row-image")
+
+script(type="text/x-template")#projects-btns
+	.slider-btn
+		button.slider-btn__item
+			+icon("short-arrow","slider-btn__icon slider-btn__icon--left")
+		button.slider-btn__item.slider-btn__item--inactive(disabled)
+			+icon("short-arrow","slider-btn__icon slider-btn__icon--right")
+
+script(type="text/x-template")#projects-info
+	.projects__data
+		.projects__desc
+			tags
+			.projects__text
+				h4.projects__name Сайт школы образования
+				.projects__about 
+					p.projects__info Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+				.projects__link
+					a.iconed-link(href="http://onexsan.tmweb.ru/" target="_blank")
+						.iconed-link__image
+							+icon("link", "iconed-link__icon")
+						p.iconed-link__text Посмотреть сайт
+
+script(type="text/x-template")#projects-tags
+	.projects__tags
+		- var tags = ["HTML", "CSS", "Javascript"]
+		each item in tags
+			.tags__item
+				a.tags__link(href="#" target="_blank")= item
