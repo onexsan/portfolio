@@ -1,0 +1,38 @@
+[
+	{
+		"authorName": "Ковальчук Дмитрий",
+		"authorAbout": "Основатель LoftSchool",
+		"reviewText": "Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+		"authorPic": "images/content/review-1.png"
+	},
+	{
+		"authorName": "Сабанцев Владимир",
+		"authorAbout": "Преподаватель",
+		"reviewText": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.",
+		"authorPic": "images/content/review-2.png"
+	},
+	{
+		"authorName": "Ковальчук Дмитрий 3",
+		"authorAbout": "Основатель LoftSchool",
+		"reviewText": "Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+		"authorPic": "images/content/review-1.png"
+	},
+	{
+		"authorName": "Сабанцев Владимир 4",
+		"authorAbout": "Преподаватель",
+		"reviewText": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.",
+		"authorPic": "images/content/review-2.png"
+	},
+	{
+		"authorName": "Ковальчук Дмитрий 5",
+		"authorAbout": "Основатель LoftSchool",
+		"reviewText": "Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+		"authorPic": "images/content/review-1.png"
+	},
+	{
+		"authorName": "Сабанцев Владимир 6",
+		"authorAbout": "Преподаватель",
+		"reviewText": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.",
+		"authorPic": "images/content/review-2.png"
+	}
+]

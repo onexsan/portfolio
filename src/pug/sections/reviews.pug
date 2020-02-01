@@ -5,10 +5,10 @@ section.section.reviews(id="reviews")
       .reviews__control-panel
         ul.reviews-controls
           li.reviews-controls__item(@click="prev")
-            button.control-btn(type="button", :disabled="activePage === 0")
+            button.control-btn.control-btn--prev(type="button", :disabled="activePage === 0")
               +icon("short-arrow","control-btn__icon control-btn__icon--left")
           li.reviews-controls__item(@click="next")
-            button.control-btn(type="button", :disabled="activePage === pages")
+            button.control-btn.control-btn--next(type="button", :disabled="activePage === pages")
               +icon("short-arrow","control-btn__icon control-btn__icon--right")
     .reviews__slider
       reviews-carousel

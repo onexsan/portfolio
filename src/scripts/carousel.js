@@ -2,6 +2,13 @@ import Vue from 'vue';
 import { Carousel, Slide } from 'vue-carousel';
 import EventBus from "./event.js";
 
+const reviewsItem = {
+	template: "#reviews-item",
+	props: {
+		review: Object
+	}
+};
+
 const ReviewsCarousel = {
 	template: "#reviews-widget",
 	data() {
@@ -12,7 +19,8 @@ const ReviewsCarousel = {
 	},
 	components: {
 		Carousel,
-		Slide
+		Slide,
+		reviewsItem
 	},
 	methods: {
 		pageChange(number) {
@@ -36,31 +44,38 @@ const ReviewsCarousel = {
 
 			window.addEventListener('resize', calc);
 		},
-		mounted() {
-			this.calcSlidesPerPage(this);
-
-			// Запрос к базе за отзывами
-			// ...
-		},
-		watch: {
-			slidesPerPage() {
-				EventBus.$emit('pages', this.pages());
-			}
+		// disableButton() {
+		// 	const originalPrev = document.querySelector('.VueCarousel-navigation-prev');
+		// 	const originalNext = document.querySelector('.VueCarousel-navigation-next');
+		// 	const customPrev = document.querySelector('.control-btn--prev');
+		// 	const customNext = document.querySelector('.control-btn--next');
+		// 	if (originalPrev.classList.contains('VueCarousel-navigation--disabled')) {
+		// 		customPrev.setAttribute("disabled", "disabled");
+		// 	}
+		// 	if (originalNext.classList.contains('VueCarousel-navigation--disabled')) {
+		// 		customNext.setAttribute("disabled", "disabled");
+		// 	}
+		// }
+	},
+	created() {
+		const data = require("../data/reviews.json");
+		this.reviews = data;
+	},
+	mounted() {
+		this.calcSlidesPerPage(this);
+	},
+	watch: {
+		slidesPerPage() {
+			EventBus.$emit('pages', this.pages());
 		}
-
-
 	}
-
 };
 
 new Vue({
 	el: '.reviews__container',
 	data: {
 		activePage: 0,
-		// данное значение меняется в зависимости от кол. элементов в массиве reviews (строка 9)
-		// но так как ты не делаешь запрос к базе а выводишь отзывы хардкодно, то и массив всегда пуст
-		// зная сколько у нас захардкодено записей указ вручную и кол. страниц
-		pages: 1 // страниц 2, но отчет начинается с 0. 0 - это первая страница, 1 - это вторая
+		pages: 0
 	},
 	components: {
 		ReviewsCarousel
