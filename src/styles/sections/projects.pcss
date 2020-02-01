@@ -150,18 +150,18 @@
 	}
 }
 
-.projects__visuals:after {
-	content: "";
-    position: absolute;
-    right: -3.5rem;
-    top: 0.25rem;
-    width: 10.25rem;
-    height: 14.125rem;
+.projects__visuals:before {
+	content: attr(data-slide);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-60%);
+	line-height: 1;
+	left: 95%;
+	font-size: 25rem;
+	font-weight: 800;
+	margin-left: -8%;
+	color: rgba(65,76,99,.05);
 	z-index: -1;
-  	background-image: url("~images/backgrounds/number-2.png");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 
 	@include phones {
 		display: none;
@@ -226,7 +226,7 @@
 
 .slider__row {
 	position: absolute;
-	left: 5.5rem;
+	right: 3.5rem;
 	margin-bottom: 35px;
 	width: 80%;
 
@@ -271,9 +271,7 @@
 	}
 }
 
-
-.slider__row-item--active:hover {
-	.slider__row-image {
-		border: none;
-	}
+.active {
+	border: 3px solid orange;
+	
 }

@@ -1,61 +1,68 @@
 script(type="text/x-template")#projects-widget
 	.projects__slider
 		display(
-			:works="works"
+			:works="works",
+			:currentWork="currentWork",
+			:currentIndex="currentIndex",
+			@slide="handleSlide"
 		)
-		info
+		info(
+			:currentWork="currentWork"
+		)
 
 script(type="text/x-template")#projects-display
-	.projects__visuals
+	.projects__visuals(:data-slide="currentIndex + 1")
 		.slider__content
 			
 			.slider__picture
 				.slider__preview
-					img.slider__image(:src="works[0].photo", alt="")
+					img.slider__image(:src="currentWork.photo", alt="")
 				
 			.slider__controls
 				.slider__row
-					thumbs
+					thumbs(
+						:works="works",
+						:currentWork="currentWork"
+					)
 					
 				.slider__btns
-					btns
+					btns(
+						@slide="$emit('slide', $event)",
+						:works="works",
+						:currentWork="currentWork"
+					)
 
 script(type="text/x-template")#projects-thumbs
 	.slider__row-list
-		.slider__row-item.slider__row-item--active
+		.slider__row-item(v-for="work in works", :class="{active: work.id === currentWork.id}")
 			a.slider__row-link(href="#")
-				+image("content/preview-2.jpg", "slider__row-image")
-		.slider__row-item
-			a.slider__row-link(href="#")
-				+image("content/preview-3.jpg", "slider__row-image")
-		.slider__row-item
-			a.slider__row-link(href="#")
-				+image("content/preview-4.jpg", "slider__row-image")
+				img.slider__row-image(:src="work.photo", alt="")
+		
 
 script(type="text/x-template")#projects-btns
 	.slider-btn
-		button.slider-btn__item
+		button.slider-btn__item.slider-btn__item--prev(@click.prevent="$emit('slide', 'prev')")
 			+icon("short-arrow","slider-btn__icon slider-btn__icon--left")
-		button.slider-btn__item.slider-btn__item--inactive(disabled)
+		button.slider-btn__item.slider-btn__item--next(@click.prevent="$emit('slide', 'next')")
 			+icon("short-arrow","slider-btn__icon slider-btn__icon--right")
 
 script(type="text/x-template")#projects-info
 	.projects__data
 		.projects__desc
-			tags
+			tags(
+				:tags="tagsArray"
+			)
 			.projects__text
-				h4.projects__name Сайт школы образования
+				h4.projects__name {{currentWork.title}}
 				.projects__about 
-					p.projects__info Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+					p.projects__info {{currentWork.desc}}
 				.projects__link
-					a.iconed-link(href="http://onexsan.tmweb.ru/" target="_blank")
+					a.iconed-link(:href="currentWork.link" target="_blank")
 						.iconed-link__image
 							+icon("link", "iconed-link__icon")
 						p.iconed-link__text Посмотреть сайт
 
 script(type="text/x-template")#projects-tags
 	.projects__tags
-		- var tags = ["HTML", "CSS", "Javascript"]
-		each item in tags
-			.tags__item
-				a.tags__link(href="#" target="_blank")= item
+		.tags__item(v-for="tag in tags")
+			a.tags__link(href="#" target="_blank") {{tag}}

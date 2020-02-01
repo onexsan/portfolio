@@ -1,15 +1,18 @@
 import Vue from "vue";
 
 const thumbs = {
-	template: "#projects-thumbs"
+	template: "#projects-thumbs",
+	props: ["works", "currentWork"]
 }
 
 const btns = {
-	template: "#projects-btns"
+	template: "#projects-btns",
+	props: ["works", "currentWork"]
 }
 
 const tags = {
-	template: "#projects-tags"
+	template: "#projects-tags",
+	props: ["tags"]
 }
 
 const display = {
@@ -17,13 +20,20 @@ const display = {
 	components: {
 		btns, thumbs
 	},
-	props: ["works"]
+	props: ["works", "currentWork", "currentIndex"]
+
 }
 
 const info = {
 	template: "#projects-info",
 	components: {
 		tags
+	},
+	props: ["currentWork"],
+	computed: {
+		tagsArray() {
+			return this.currentWork.skills.split(', ');
+		}
 	}
 }
 
@@ -35,7 +45,13 @@ new Vue({
 	},
 	data() {
 		return {
-			works: []
+			works: [],
+			currentIndex: 0
+		}
+	},
+	computed: {
+		currentWork() {
+			return this.works[this.currentIndex]
 		}
 	},
 	methods: {
@@ -46,6 +62,35 @@ new Vue({
 
 				return item;
 			})
+		},
+		handleSlide(direction) {
+			switch (direction) {
+				case "next":
+					this.currentIndex++;
+					break;
+				case "prev":
+					this.currentIndex--;
+					break;
+			}
+		},
+		disableButtons(value) {
+			const worksAmount = this.works.length - 1;
+			const buttonNext = document.querySelector(".slider-btn__item--next");
+			const buttonPrev = document.querySelector(".slider-btn__item--prev");
+
+			if (value === 0) {
+				buttonPrev.setAttribute("disabled", "disabled");
+			}
+
+			if (value === worksAmount) {
+				buttonNext.setAttribute("disabled", "disabled");
+			}
+		}
+
+	},
+	watch: {
+		currentIndex(value) {
+			this.disableButtons(value)
 		}
 	},
 	created() {
