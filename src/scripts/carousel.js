@@ -51,13 +51,12 @@ const ReviewsCarousel = {
       });
     }
   },
-  created() {
-    const data = require("../data/reviews.json");
-    this.reviews = this.makeArrWithRequiredImages(data);
-    this.reviews = data;
-  },
   mounted() {
     this.calcSlidesPerPage(this);
+    this.reviews = this.makeArrWithRequiredImages(require("../data/reviews.json"));
+    this.$nextTick(()=> {
+      EventBus.$emit("pages", this.pages());
+    })
   },
   watch: {
     slidesPerPage() {
