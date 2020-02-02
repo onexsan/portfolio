@@ -85,6 +85,10 @@ new Vue({
 			if (value === worksAmount) {
 				buttonNext.setAttribute("disabled", "disabled");
 			}
+
+			if (value !== worksAmount && value !== 0) {
+				buttonNext.removeAttribute("disabled", "disabled");
+			}
 		}
 
 	},

@@ -1,0 +1,58 @@
+section.section.about
+	.container.about__container
+		.about__intro
+			h2.about__title Блок «Обо мне»
+			button.add-btn.add-btn--small
+				.add-btn__image
+				p Добавить группу
+		.about__blocks
+			.skill-block.skill-block--empty
+				.skill-block__content
+					form.skill-form(action="POST")
+						.skill-form__container
+							.skill-form__row
+								input.skill-form__input.skill-form__input--group(type="text" placeholder="Название новой группы" name="skill-group")
+								.skill-group__btns
+									button.accept-btn(type="submit" name="accept-btn")
+										.accept-btn__icon
+									button.decline-btn(type="submit" name="decline-btn")
+										.decline-btn__icon
+							.skill-form__content
+							.skill-form__row
+								input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name")
+								input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent")
+								button.add-btn.add-btn--big(type="submit" name="add-btn")
+									.add-btn__image
+			.skill-block.skill-block--finished
+				.skill-block__content
+					form.skill-form(action="POST")
+						.skill-form__container
+							.skill-form__row
+								input.skill-form__input.skill-form__input--group(type="text" value="Workflow" name="skill-group")
+								.skill-group__btns
+									button.edit-btn
+										.edit-btn__icon
+							.skill-form__content
+								include ./skill-list.pug
+							.skill-form__row
+								input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name")
+								input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent")
+								button.add-btn.add-btn--big(type="submit" name="add-btn")
+									.add-btn__image
+			.skill-block.skill-block--finished
+				.skill-block__content
+					form.skill-form(action="POST")
+						.skill-form__container
+							.skill-form__row
+								input.skill-form__input.skill-form__input--group(type="text" value="Frontend" name="skill-group")
+								.skill-group__btns
+									button.edit-btn
+										.edit-btn__icon
+							.skill-form__content
+								include ./skill-list.pug
+							.skill-form__row
+								input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name")
+								input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent")
+								button.add-btn.add-btn--big(type="submit" name="add-btn")
+									.add-btn__image
+			

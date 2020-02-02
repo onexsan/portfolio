@@ -1,0 +1,40 @@
+.tabs {
+	background-color: white;
+}
+
+.tabs__container {
+	display: flex;
+	padding: 0px 30px;
+}
+
+.tabs__item {
+	padding: 30px;
+	margin-right: 5px;
+	min-width: 130px;
+
+	.tabs__btn {
+		background-color: transparent;
+		font-size: 16px;
+  		font-weight: 400;
+		color: #414c63;
+
+		&:focus {
+			outline: 1px solid lightgray;
+		}
+		
+
+		&:hover {
+			
+			color: #383bcf;
+		}
+	}
+
+	&--active {
+		border-bottom: 3px solid #383bcf;
+		.tabs__btn {
+			font-weight: 600;
+			color: #383bcf;
+		}
+		
+	}
+}
