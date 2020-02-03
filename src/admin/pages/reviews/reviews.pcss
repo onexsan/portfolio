@@ -4,14 +4,27 @@
 
 .reviews__intro {
 	margin-bottom: 60px;
+
+	@media screen and (max-width: 360px) {
+		margin-left: 20px;
+	}
 }
 
 .reviews__container {
 	padding: 60px 30px;
+
+	@media screen and (max-width: 360px) {
+		padding: 3.75rem 0rem;
+   		width: 100%;
+	}
 }
 
 .review-form__container {
 	display: flex;
+
+	@media screen and (max-width: 680px) {
+		flex-direction: column;
+	}
 }
 
 .reviews__list {
@@ -25,7 +38,8 @@
 .reviews__list .block-item {
 	min-height: 380px;
 	min-width: 340px;
-	height: 390px;
+
+
 }
 
 .review__controls {
@@ -44,6 +58,7 @@
 }
 
 .review__author {
+	margin-bottom: 30px;
 	border: 1px solid transparent;
 	border-bottom: 1px solid lightgray;
 	padding: 0px 0px 30px 0px;
@@ -84,10 +99,18 @@
   line-height: 1;
 }
 
-.review__text p {
-	 color: rgba(65, 76, 99, 0.7);
-}
+.review__text {
+	margin-bottom: 30px;
+	min-height: 150px;
 
+	p {
+		color: rgba(65, 76, 99, 0.7);
+	}
+
+	@media screen and (max-width: 680px) {
+		min-height: 7.375rem;
+	}
+}
 
 
 .review-form__title {
@@ -99,7 +122,7 @@
 
 .reviews__content {
 	.edit-field {
-		height: 560px;
+		min-height: 560px;
 	}
 }
 
@@ -110,10 +133,37 @@
 	align-items: center;
 	justify-content: flex-start;
 
+	
+
 	&:last-child {
 		width: 50%;
 		align-items: flex-end;
+
+		@media screen and (max-width: 768px) {
+			width: 55%;
+		}
+
+		@media screen and (max-width: 680px) {
+			width: 100%;
+			margin-bottom: 40px;
+			align-items: center;
+		}
+
 	}
+
+	&:first-child {
+		@media screen and (max-width: 768px) {
+			width: 40%;
+			margin-right: 20px;
+		}
+
+		@media screen and (max-width: 680px) {
+			width: 100%;
+			margin-bottom: 40px;
+			align-items: center;
+		}
+	}
+
 }
 
 .review-form-row {
@@ -122,16 +172,49 @@
 	justify-content: flex-start;
 	margin-bottom: 40px;
 
-	&--btns {
-		justify-content: flex-end;
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
 	}
+
+	@media screen and (max-width: 680px) {
+		width: 100%;
+    	align-items: center;
+	}
+
+}
+
+.review-form-row--btns {
+	justify-content: flex-end;
+
+		@media screen and (max-width: 767px) {
+			flex-direction: row;
+			justify-content: center;
+		}
 
 }
 
 .review-form-row__block {
 
+	@media screen and (max-width: 680px) {
+		width: 100%;
+	}
+
+	&:first-child {
+		@media screen and (max-width: 768px) {
+			margin-bottom: 30px;
+		}
+	}
+
 	.form__input {
 		width: 90%;
+
+		@media screen and (max-width: 914px) {
+			font-size: 12px;
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 16px;
+		}
 	}
 
 	&--textarea {

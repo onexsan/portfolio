@@ -5,12 +5,35 @@
 .tabs__container {
 	display: flex;
 	padding: 0px 30px;
+
+	@media screen and (max-width: 470px) {
+		padding: 0px;
+	}
+
+	@media screen and (max-width: 320px) {
+		padding: 0px 20px;
+	}
 }
 
 .tabs__item {
 	padding: 30px;
 	margin-right: 5px;
 	min-width: 130px;
+
+	@media screen and (max-width: 480px) {
+		padding: 30px 20px;
+	}
+
+	@media screen and (max-width: 370px) {
+		padding: 30px 10px;
+		min-width: 100px;
+	}
+
+	@media screen and (max-width: 326px) {
+		padding: 30px 0px;
+		text-align: center;
+		min-width: 100px;
+	}
 
 	.tabs__btn {
 		background-color: transparent;

@@ -4,10 +4,19 @@
 
 .projects__intro {
 	margin-bottom: 60px;
+
+	@media screen and (max-width: 320px) {
+    	margin-left: 20px;
+  	}
 }
 
 .projects__container {
 	padding: 60px 30px;
+
+	@media screen and (max-width: 600px) {
+    	padding: 60px 0px;
+		width: 100%;
+  	}
 }
 
 .projects__list {
@@ -90,12 +99,50 @@
 
 .project-form__container {
 	display: flex;
+
+	@media screen and (max-width: 768px) {
+    	flex-direction: column;
+    	align-items: center;
+  	}
+
 }
 
 .project-form__column {
 	width: 50%;
 	height: 100%;
+
+	&:first-child {
+		margin-right: 50px;
+
+		@media screen and (max-width: 768px) {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin-right: 0px;
+			margin-bottom: 50px;
+  		}
+
+		@media screen and (max-width: 600px) {
+    		width: 100%;
+  		}
+
+	}
+
+	&:nth-child(2) {
+		@media screen and (max-width: 768px) {
+			width: 70%;
+  		}
+
+		@media screen and (max-width: 600px) {
+    		width: 100%;
+  		}
+	}
+
+	
+
 }
+
+
 
 .project-form__title {
 	font-size: 18px;
@@ -105,13 +152,22 @@
 }
 
 .project-form__add-image {
-	width: 500px;
+	max-width: 500px;
+	width: 100%;
 	height: 280px;
 	background-color: #dee4ed;
 	border: outset 1px dashed #a1a1a1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	@media screen and (max-width: 768px) {
+		width: 70%;
+	}
+
+	@media screen and (max-width: 600px) {
+		width: 100%;
+	}
 }
 
 .add-image__desc {
@@ -137,12 +193,18 @@
 
 	&:last-child {
 		margin-bottom: 0px;
+
+		
 	}
 
 	&--btns {
 		flex-direction: row;
 		justify-content: flex-end;
 		align-items: center;
+
+		@media screen and (max-width: 768px) {
+			justify-content: center;
+		}
 	}
 }
 
@@ -151,12 +213,14 @@
 .project-form__tags {
 	margin-top: 20px;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .project-tags__item {
 	display: flex;
 	align-items: center;
 	margin-right: 0.625rem;
+	margin-bottom: 10px;
 	padding: .4rem 1.1rem;
 	background-color: #f4f4f4;
 	border-radius: 50px;
@@ -173,6 +237,10 @@
 		&:hover {
 			background-color: lightgray;
 			
+		}
+
+		@media screen and (max-width: 320px) {
+			margin-bottom: 10px;
 		}
 }
 
@@ -191,4 +259,3 @@
 	}
 	
 }
-
