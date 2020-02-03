@@ -6,84 +6,16 @@
 	padding: 60px 30px;
 }
 
+
 .about__intro {
 	display: flex;
 	align-items: center;
 	margin-bottom: 60px;
 }
 
-.about__title {
-	color: #414c63;
-	font-size: 21px;
-	font-weight: bold;
-	margin-right: 60px;
-}
 
-.add-btn {
-	font-size: 16px;
-  	font-weight: 600;
-  	color: #383bcf;
-	display: flex;
-	align-items: center;
 
-	&:focus {
-    outline: 1px solid lightgray;
-  }
-}
 
-.add-btn__image {
-	margin-right: 15px;
-	width: 20px;
-	height: 20px;
-	min-width: 20px;
-	min-height: 20px;
-	border-radius: 50%;
-	background-image: linear-gradient(70deg, #006aed, #3f35cb);
-	position: relative;
-	
-
-	&:hover {
-		 
-
-		&:before {
-			transform: rotate(135deg);
-			
-		}
-	}
-}
-
-.add-btn__image:before {
-	content: "";
-	position: absolute;
-	top: 6px;
-	left: 6px;
-	height: 8px;
-	width: 8px;
-	background: svg-load("cross.svg", fill=#fff, width=100%, height=100%);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	transform: rotate(45deg);
-	transition: transform .4s ease-in-out; 
-}
-
-.add-btn--big {
-	.add-btn__image {
-		width: 40px;
-		height: 40px;
-		min-width: 40px;
-		min-height: 40px;
-		margin-right: 0;
-	}
-
-	.add-btn__image:before {
-		top: 13px;
-		left: 14px;
-		height: 13px;
-		width: 13px;
-		
-	}	
-}
 
 .about__blocks {
 	display: flex;
@@ -101,10 +33,6 @@
 	margin-right: 35px;
 	margin-bottom: 35px;
 
-	&----finished .skill-form__input {
-			border-bottom: 1px solid transparent;
-		
-	}
 }
 
 .skill-block__content, .skill-form {
@@ -152,14 +80,7 @@
 	}
 }
 
-.skill-block--finished .skill-form__input {
-			border-bottom: 1px solid transparent;
 
-			&:focus {
-				border-bottom: 1px solid black;
-			}
-		
-	}
 
 .skill-form__input--skill {
 	max-width: 220px;
@@ -177,41 +98,7 @@
 	margin-right: 30px;
 }
 
-.accept-btn__icon {
-	height: 12px;
-	width: 15px;
-	background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-    transition: transform .1s ease-in-out; 
 
-	&:hover {
-		transform: scale(1.3);
-	}
-
-	&:focus {
-		outline: 1px solid lightgray;
-	}
-}
-
-.decline-btn__icon {
-	height: 11px;
-	width: 14px;
-	background: svg-load("cross.svg", fill=#bf2929, width=100%, height=100%);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	transition: transform .1s ease-in-out; 
-
-	&:hover {
-		transform: scale(1.3);
-	}
-
-	&:focus {
-		outline: 1px solid lightgray;
-	}
-}
 
 .skill-item {
 	display: flex;
@@ -252,42 +139,12 @@
 	align-items: center;
 }
 
-.delete-btn, .edit-btn, .accept-btn, .decline-btn {
-	&:focus {
-		outline: 1px solid lightgray;
-	}
+.skill-group__btns {
+	display: flex;
 }
 
-.delete-btn__icon {
-	height: 11px;
-	width: 14px;
-	background: svg-load("trash.svg", fill=#8f8f8f, width=100%, height=100%);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	transition: transform .1s ease-in-out; 
-
-	&:hover {
-		transform: scale(1.3);
-		color: rgba(0,0,0,1);
-	}
-
-	
-}
-
-.edit-btn__icon {
-	height: 11px;
-	width: 14px;
-	background: svg-load("pencil.svg", fill=#8f8f8f, width=100%, height=100%);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	transition: transform .1s ease-in-out; 
-
-	&:hover {
-		transform: scale(1.3);
-	}
-
+.skill-item__controls {
+	display: flex;
 }
 
 .skill-item__input {
@@ -303,3 +160,4 @@
 		border-bottom: 1px solid black;
 	}
 }
+

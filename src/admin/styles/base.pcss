@@ -28,10 +28,10 @@ body {
 
 .container {
   margin: 0 auto;
+
   max-width: 1480px;
   height: 100%;
   width: 95%;
-  // width: 1490px;
 
   @include phones {
     width: 85%;
@@ -130,26 +130,26 @@ button[type="button"] {
 }
 
 a {
-  color: $href;
+  color: #3f35cb;
   cursor: pointer;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
   &:hover {
-    color: $main;
+    color: #006aed;
   }
   &:focus {
-    outline: 1px solid $main;
+    outline: 1px solid #006aed;
   }
   &:active {
-    color: $href;
+    color: #006aed;
     outline: 1px solid transparent;
   }
 }
 
 input {
   &:focus {
-    outline: 1px solid $main;
+    outline: 1px solid #3f35cb;
   }
 }
 
@@ -171,4 +171,420 @@ img {
   display: block;
   max-width: 100%;
   max-height: 100%;
+}
+
+.title {
+  color: #414c63;
+	font-size: 21px;
+	font-weight: bold;
+	margin-right: 60px;
+}
+
+.add-btn {
+	font-size: 16px;
+  font-weight: 600;
+  color: #383bcf;
+	display: flex;
+	align-items: center;
+
+  p {
+    transition: transform .4s ease-in-out; 
+  }
+
+	&:focus {
+    outline: 1px solid lightgray;
+  }
+
+  &:hover {
+		 p {
+       transform: scale(.9);
+     }
+
+		.add-btn__image:before {
+			transform: rotate(135deg);
+			
+		}
+	}
+}
+
+.add-btn__image {
+	margin-right: 15px;
+	width: 20px;
+	height: 20px;
+	min-width: 20px;
+	min-height: 20px;
+	border-radius: 50%;
+	background-image: linear-gradient(70deg, #006aed, #3f35cb);
+	position: relative;
+	
+
+	
+}
+
+.add-btn__image:before {
+	content: "";
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	height: 8px;
+	width: 8px;
+	background: svg-load("cross.svg", fill=#fff, width=100%, height=100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transform: rotate(45deg);
+	transition: transform .4s ease-in-out; 
+}
+
+.add-btn--big {
+	.add-btn__image {
+		width: 40px;
+		height: 40px;
+		min-width: 40px;
+		min-height: 40px;
+		margin-right: 0;
+	}
+
+	.add-btn__image:before {
+		top: 13px;
+		left: 14px;
+		height: 13px;
+		width: 13px;
+		
+	}	
+}
+
+.accept-btn__icon {
+	height: 12px;
+	width: 15px;
+	background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+    transition: transform .1s ease-in-out; 
+
+	&:hover {
+		transform: scale(1.3);
+	}
+
+	&:focus {
+		outline: 1px solid lightgray;
+	}
+}
+
+.discard-btn__icon {
+	height: 11px;
+	width: 14px;
+	background: svg-load("cross.svg", fill=#bf2929, width=100%, height=100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transition: transform .1s ease-in-out; 
+
+	&:hover {
+		transform: scale(1.3);
+	}
+
+	&:focus {
+		outline: 1px solid lightgray;
+	}
+}
+
+.delete-btn, .edit-btn, .accept-btn, .discard-btn {
+	&:focus {
+		outline: 1px solid lightgray;
+	}
+}
+
+.delete-btn__icon {
+	height: 11px;
+	width: 14px;
+	background: svg-load("trash.svg", fill=#8f8f8f, width=100%, height=100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transition: transform .1s ease-in-out; 
+
+	&:hover {
+		transform: scale(1.3);
+		color: rgba(0,0,0,1);
+	}
+
+	
+}
+
+.edit-btn__icon {
+	height: 11px;
+	width: 14px;
+	background: svg-load("pencil.svg", fill=#8f8f8f, width=100%, height=100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transition: transform .1s ease-in-out; 
+
+	&:hover {
+		transform: scale(1.3);
+	}
+
+}
+
+.form-btn {
+  padding: 15px 40px;
+  border-radius: 50px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-image: linear-gradient(70deg, #006aed, #3f35cb);
+  transition: transform .1s ease-in-out; 
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.add-block__btn {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+
+	p {
+		width: 95px;
+		transition: transform .4s ease-in-out; 
+	}
+
+	&:hover {
+		 
+		.add-block__icon:before {
+			transform: rotate(135deg);
+			
+		}
+
+		p {
+			transform: scale(1.3);
+		}
+	}
+
+}
+
+.add-block__btn:focus {
+		outline: 1px solid white;
+}
+
+.add-block__icon {
+	width: 150px;
+	height: 150px;
+	min-width: 150px;
+	min-height: 150px;
+	border-radius: 50%;
+	border: 3px solid white;
+	position: relative;
+	margin-bottom: 30px;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 55px;
+		left: 55px;
+		height: 35px;
+		width: 35px;
+		background: svg-load("cross.svg", fill=#fff, width=100%, height=100%);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		transform: rotate(45deg);
+		transition: transform .4s ease-in-out; 
+	}
+	
+}
+
+.block-item {
+	min-height: 556px;
+	min-width: 340px;
+	height: 590px;
+	width: 30%;
+	background-color: white;
+	box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
+	margin-right: 30px;
+	margin-bottom: 30px;
+
+	&--add {
+		background-image: linear-gradient(65deg, #006aed, #3f35cb);
+	}
+}
+
+.block-item__container {
+	height: 100%;
+	width: 100%;
+}
+
+.edit-field {
+	background-color: white;
+	box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
+	height: 850px;
+	width: 100%;
+	padding: 30px;
+	margin-bottom: 35px;
+
+	&__intro {
+		border-bottom: 1px solid lightgray;
+		margin-bottom: 50px;
+	}
+}
+
+.item__controls .edit-btn, .review__controls .edit-btn {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		background: svg-load("pencil.svg", fill=#383bcf, width=100%, height=100%);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+
+		&:hover {
+			transform: none;
+		}
+		
+	}
+
+	p {
+		margin-bottom: 2px;
+		margin-right: 5px;
+		font-size: 16px;
+  		font-weight: 600;
+		color: rgba(65, 76, 99, 0.5);
+		transition: color .2s ease-in-out; 
+	}
+
+	&:hover {
+
+		p {
+			color: #383bcf;
+		}
+	}
+}
+
+.item__controls .discard-btn, .review__controls .discard-btn {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		&:hover {
+			transform: none;
+		}
+	}
+
+	p {
+		margin-bottom: 2px;
+		margin-right: 5px;
+		font-size: 16px;
+  		font-weight: 600;
+		color: rgba(65, 76, 99, 0.5);
+		transition: color .2s ease-in-out; 
+	}
+
+	&:hover {
+
+		p {
+			color: #bf2929;
+		}
+	}
+}
+
+
+
+
+
+.cancel-btn {
+	margin-right: 45px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #383bcf;
+	transition: transform .1s ease-in-out; 
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+}
+
+.form__input {
+	width: 100%;
+	padding: 20px 0px;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #414c63;
+	font-size: 16px;
+  	font-weight: 600;
+	color: #414c63;
+	line-height: 1.4;
+}
+
+.form__label {
+	color: rgba(65, 76, 99, 0.5);
+	font-size: 16px;
+  	font-weight: 600;
+
+	  &--textarea {
+		  margin-bottom: 15px;
+	  }
+}
+
+.form__input--textarea {
+	padding: 20px;
+	height: 140px;
+	resize: none;
+  	overflow: hidden;
+	border: 1px solid lightgray;
+
+	&:focus {
+		border: 1px solid transparent;
+		outline: 1px solid #383bcf;
+	}
+}
+
+.add-image {
+	p {
+		margin-top: 25px;
+		font-size: 16px;
+		font-weight: 600;
+		color: #383bcf;
+		transition: transform .1s ease-in-out; 
+	}
+
+	&:hover {
+		p {
+			transform: scale(1.1);
+		}
+
+		.add-image__icon:before {
+			transform: scale(1.1);
+		}
+	}
+}
+
+.add-image__icon {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #dee4ed;
+	position: relative;
+}
+
+.add-image__icon:before {
+	content: "";
+	position: absolute;
+	top: 45px;
+	left: 60px;
+	height: 112px;
+	width: 84px;
+	background: svg-load("user.svg", fill=#fff, width=100%, height=100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transition: transform .1s ease-in-out; 
+
 }

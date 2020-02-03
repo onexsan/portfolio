@@ -5,7 +5,6 @@
     about()
     projects()
     reviews()
-    auth()
 </template>
 
 <style lang="postcss" src="./styles/main.pcss">
@@ -17,7 +16,6 @@ import tabs from "./components/tabs/tabs.vue";
 import about from "./pages/about/about.vue";
 import projects from "./pages/projects/projects.vue";
 import reviews from "./pages/reviews/reviews.vue";
-import auth from "./pages/auth/auth.vue";
 
 export default {
   components: {
@@ -25,8 +23,7 @@ export default {
     tabs,
     about,
     projects,
-    reviews,
-    auth
+    reviews
   }
 };
 </script>
