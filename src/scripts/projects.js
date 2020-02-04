@@ -77,18 +77,14 @@ new Vue({
 			const worksAmount = this.works.length - 1;
 			const buttonNext = document.querySelector(".slider-btn__item--next");
 			const buttonPrev = document.querySelector(".slider-btn__item--prev");
-			console.log(value, worksAmount);
+
 
 			if (value === 0) {
 				buttonPrev.setAttribute("disabled", "disabled");
-			} else {
-				buttonPrev.removeAttribute("disabled");
 			}
 
 			if (value === worksAmount) {
 				buttonNext.setAttribute("disabled", "disabled");
-			} else {
-				buttonNext.removeAttribute("disabled");
 			}
 		}
 
@@ -101,8 +97,5 @@ new Vue({
 	created() {
 		const data = require("../data/projects.json");
 		this.works = this.makeArrWithRequiredImages(data);
-	},
-	mounted() {
-		this.disableButtons(this.currentIndex);
 	}
 });
