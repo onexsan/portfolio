@@ -15,8 +15,6 @@ contactButton.addEventListener('click', function (event) {
 			form.elements.name.style.borderBottom = "1px solid white";
 			form.elements.name.nextElementSibling.style.display = "none";
 
-
-
 		}
 
 		if (!validateField(form.elements.email)) {
