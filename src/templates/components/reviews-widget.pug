@@ -17,8 +17,8 @@ script(type="text/x-template")#reviews-item
 				.author__pic
 					.author__avatar
 						.avatar
-							+image("content/review-1.png", "author__image")
-							//- img.author__image(:src="review.photo", alt="")
+							//- +image("content/review-1.png", "author__image")
+							img.author__image(:src="review.photo", alt="")
 				.author__desc
 					p.author__name {{review.authorName}}
 					p.author__info {{review.authorAbout}}
