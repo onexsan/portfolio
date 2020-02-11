@@ -15,9 +15,9 @@ export default {
     }
   }),
   methods: {
-    login() {
+    async login() {
       try {
-        const response = $axios.post("/login", this.user);
+        const response = await $axios.post("/login", this.user);
         console.log(response);
 
         const token = response.data.token;
