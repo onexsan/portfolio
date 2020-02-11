@@ -5,6 +5,17 @@
 <style lang="postcss" src="./tabs.pcss">
 </style>
 
+
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      tabs: [
+        { title: "Обо мне", href: "/" },
+        { title: "Отзывы", href: "/reviews" },
+        { title: "Работы", href: "/works" }
+      ]
+    };
+  }
+};
 </script>

@@ -1,29 +1,27 @@
 <template lang="pug">
-  .root__wrapper
-    admHeader()
-    tabs()
-    about()
-    projects()
-    reviews()
+  div.root-wrapper-container
+    div.root-container
+      //- header.header-container
+      //-   app-header
+      //- section.tabs-container
+      //-   tabs
+      //- main.content-container
+      //-   router-view
+      section.auth-container
+        auth
 </template>
 
-<style lang="postcss" src="./styles/main.pcss">
-</style>
-
 <script>
-import admHeader from "./components/header/header.vue";
-import tabs from "./components/tabs/tabs.vue";
-import about from "./pages/about/about.vue";
-import projects from "./pages/projects/projects.vue";
-import reviews from "./pages/reviews/reviews.vue";
-
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   components: {
-    admHeader,
-    tabs,
-    about,
-    projects,
-    reviews
+    // appHeader: () => import("./components/header/header"),
+    // tabs: () => import("./components/tabs/tabs"),
+    auth: () => import("./pages/auth/auth")
   }
 };
 </script>
+
+
+<style lang="postcss" src="./styles/main.pcss">
+</style>

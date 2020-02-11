@@ -1,1 +1,15 @@
-h1 Hello I'm auth
+.login__wrapper
+		.login__content
+			h2.login__title Авторизация
+			form(@submit.prevent="login").login__form
+				.login__row
+					label.login__label.login__label--name
+						p Логин
+						input(type="text" v-model="user.name")
+				.login__row
+					label.login__label.login__label--password
+						p Пароль
+						input(type="password" v-model="user.password")
+				.login__row
+					.login__btn
+						button(type="submit").btn.btn--feedback Отправить

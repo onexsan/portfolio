@@ -1,7 +1,14 @@
 import Vue from 'vue';
-import App from './App.vue'
+import router from './router';
+import App from './App.vue';
+import store from './store/index.js';
+import $axios from './requests.js';
+
+store.$axios = $axios;
 
 new Vue({
-  el: "#app-root",
+  el: '#app-root',
+  router,
+  store,
   render: h => h(App)
 });

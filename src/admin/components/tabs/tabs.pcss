@@ -19,6 +19,7 @@
 	padding: 30px;
 	margin-right: 5px;
 	min-width: 130px;
+	border-bottom: 3px solid transparent;
 
 	@media screen and (max-width: 480px) {
 		padding: 30px 20px;
@@ -35,6 +36,14 @@
 		min-width: 100px;
 	}
 
+	&:hover {
+			border-bottom: 3px solid #383bcf;
+			.tabs__btn {
+			font-weight: 600;
+			color: #383bcf;
+		}
+		}
+
 	.tabs__btn {
 		background-color: transparent;
 		font-size: 16px;
@@ -46,10 +55,6 @@
 		}
 		
 
-		&:hover {
-			
-			color: #383bcf;
-		}
 	}
 
 	&--active {
