@@ -25,32 +25,33 @@ html(lang="en")
 					
 					.parallax__layer.parallax__layer--sky(data-speed="0.1")
 						picture
+							source(class="parallax__image" media="(min-width:1800px)" srcset=sky1800) 
 							source(class="parallax__image" media="(min-width:1200px)" srcset=sky1200)
-							source(class="parallax__image" media="(min-width:1800px)" srcset=sky1800)
 							img(class="parallax__image" src="")
 
 					.parallax__layer.parallax__layer--hills(data-speed="0.3")
 						picture
-							source(class="parallax__image" media="(min-width:1200px)" srcset=hills1200)
 							source(class="parallax__image" media="(min-width:1800px)" srcset=hills1800)
+							source(class="parallax__image" media="(min-width:1200px)" srcset=hills1200)
 							img(class="parallax__image" src="")
 					
 					.parallax__layer.parallax__layer--train(data-speed="0.5")
 						picture
-							source(class="parallax__image" media="(min-width:1200px)" srcset=train1200)
 							source(class="parallax__image" media="(min-width:1800px)" srcset=train1800)
+							source(class="parallax__image" media="(min-width:1200px)" srcset=train1200)
 							img(class="parallax__image" src="")
 					
 					.parallax__layer.parallax__layer--field(data-speed="0.7")
 						picture
-							source(class="parallax__image" media="(min-width:1200px)" srcset=field1200)
 							source(class="parallax__image" media="(min-width:1800px)" srcset=field1800)
+							source(class="parallax__image" media="(min-width:1200px)" srcset=field1200)
 							img(class="parallax__image" src="")
 					
-					.parallax__layer(data-speed="0.7")
+					.parallax__layer(data-speed="0.5")
 						.parallax__gradient
 					.parallax__layer(data-speed="0.7")
 						.parallax__darker-gradient
+					
 					
 
 				include ./pug/sections/hero

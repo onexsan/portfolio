@@ -2,6 +2,7 @@
 section.section.about
 	.container.about__container
 		.about__intro
+			pre {{categories}}
 			h2.title.about__title Блок «Обо мне»
 			button.add-btn.add-btn--small
 				.add-btn__image
@@ -16,7 +17,7 @@ section.section.about
 								.skill-group__btns
 									button.accept-btn(type="submit" name="accept-btn")
 										.accept-btn__icon
-									button.discard-btn(type="submit" name="discard-btn")
+									button.discard-btn(name="discard-btn")
 										.discard-btn__icon
 							.skill-form__content
 							.skill-form__row
@@ -38,8 +39,13 @@ export default {
   }),
   methods: {
     ...mapActions("categories", ["addCategory"]),
-    addNewCategory() {
-      this.addCategory(this.title);
+    async addNewCategory() {
+      try {
+        await this.addCategory(this.title);
+        console.log(this.title);
+      } catch (error) {
+        console.warn(error.message);
+      }
     }
   }
 };

@@ -21,14 +21,35 @@ body {
   color: $text-color;
 }
 
+.maincontent {
+  height: 100vh;
+}
+
+.root-wrapper, .page__wrapper, section {
+  height: 100%;
+}
+
 .wrapper {
-  overflow: hidden;
   min-height: 100%;
+}
+
+.page__wrapper {
+  z-index: 5;
+  position: relative;
+  background: url("../images/bg-mountains-admin.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+section {
+  z-index: 10;
 }
 
 .container {
   margin: 0 auto;
-
+  z-index: 10;
   max-width: 1480px;
   height: 100%;
   width: 95%;
@@ -39,20 +60,7 @@ body {
   }
 }
 
-.fullscreen-section {
-	height: 100vh;
-	min-height: 568px;
-}
 
-
-
-.section {
-  min-height: 500px;
-  
-  @include tablets {
-    min-height: 400px;
-  }
-}
 
 
 
@@ -184,43 +192,46 @@ img {
 
 
 .block-item {
-	min-height: 556px;
-	min-width: 340px;
-	width: 30%;
+
+	width: 100%;
 	background-color: white;
 	box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
-	margin-right: 30px;
+
 	margin-bottom: 30px;
 
 	&--add {
 		background-image: linear-gradient(65deg, #006aed, #3f35cb);
 	}
 
-  @media screen and (max-width: 685px) {
-		width: 92%;
+  @media screen and (min-width: 769px) {
+    width: calc(100% / 2 - 30px);
+
+    
 	}
 
-  @media screen and (max-width: 440px) {
-		width: 88%;
+
+   @media screen and (min-width: 1200px) {
+    width: calc(100% / 3 - 30px);
 	}
 
-  @media screen and (max-width: 360px) {
-		margin-right: 0;
-    width: 87%;
-    margin-bottom: 15px;
+  @media screen and (min-width: 2200px) {
+    width: calc(100% / 2 - 30px);
 	}
+
+  
+
 
 
 }
 
 .reviews__item.block-item--add {
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     min-height: 7.75rem;
 	}
 }
 
 .block-item--add {
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
 		margin-right: 0;
     width: 100%;
     display: flex;
@@ -230,7 +241,7 @@ img {
 }
 
 .projects__item.block-item--add {
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
 		
     min-height: 110px;
     
@@ -251,7 +262,7 @@ img {
 .projects__item.block-item--add .block-item__container {
 	padding: 186px 0px;
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
         padding: 0.625rem 0;
         
   }
@@ -260,7 +271,7 @@ img {
 .reviews__item.block-item--add .block-item__container {
 	padding: 42px 0px;
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
         padding: 0.625rem 0;
         
   }
