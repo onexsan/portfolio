@@ -1,14 +1,14 @@
 <template lang="pug">
 section.section.about
 	.container.about__container
+		pre 
 		.about__intro
-			pre {{categories}}
 			h2.title.about__title Блок «Обо мне»
 			button.add-btn.add-btn--small
 				.add-btn__image
 				p Добавить группу
-		.about__blocks
-			.skill-block.skill-block--empty
+		ul.about__blocks
+			li.skill-block
 				.skill-block__content
 					form.skill-form(@submit.prevent="addNewCategory")
 						.skill-form__container
@@ -25,24 +25,38 @@ section.section.about
 								input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent")
 								button.add-btn.add-btn--big(type="submit" name="add-btn")
 									.add-btn__image
+			li.skill-block(v-for="category in categories" :key="category.id")
+				skills-group(
+					:category="category"
+				)
 </template>
 
 <style lang="postcss" src="./about.pcss">
 </style>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
+  components: {
+    skillsGroup: () => import("./skills-group")
+  },
   data: () => ({
     title: ""
   }),
+  computed: {
+    ...mapState("categories", {
+      categories: state => state.categories
+    })
+  },
+  created() {
+    this.fetchCategories();
+  },
   methods: {
-    ...mapActions("categories", ["addCategory"]),
+    ...mapActions("categories", ["addCategory", "fetchCategories"]),
     async addNewCategory() {
       try {
         await this.addCategory(this.title);
-        console.log(this.title);
       } catch (error) {
         console.warn(error.message);
       }
