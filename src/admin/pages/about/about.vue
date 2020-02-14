@@ -4,15 +4,15 @@ section.section.about
 		pre 
 		.about__intro
 			h2.title.about__title Блок «Обо мне»
-			button.add-btn.add-btn--small
+			button.add-btn.add-btn--small(type="button" @click="showAddingCard = true")
 				.add-btn__image
 				p Добавить группу
 		ul.about__blocks
-			li.skill-block
+			li.skill-block(v-if="showAddingCard")
 				.skill-block__content
-					form.skill-form(@submit.prevent="addNewCategory")
+					.skill-form
 						.skill-form__container
-							.skill-form__row
+							form.skill-form__row(@submit.prevent="addNewCategory")
 								input.skill-form__input.skill-form__input--group(type="text" v-model="title" placeholder="Название новой группы" name="skill-group")
 								.skill-group__btns
 									button.accept-btn(type="submit" name="accept-btn")
@@ -20,11 +20,13 @@ section.section.about
 									button.discard-btn(name="discard-btn")
 										.discard-btn__icon
 							.skill-form__content
+								skill-item(
+									v-for="skill in category.skills"
+									:key="skill.id"
+									:skill="skill"
+								)
 							.skill-form__row
-								input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name")
-								input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent")
-								button.add-btn.add-btn--big(type="submit" name="add-btn")
-									.add-btn__image
+								skill-item-add(:category="category")
 			li.skill-block(v-for="category in categories" :key="category.id")
 				skills-group(
 					:category="category"
@@ -39,10 +41,18 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
-    skillsGroup: () => import("./skills-group")
+    skillsGroup: () => import("./skills-group"),
+    skillItem: () => import("./skill-item"),
+    skillItemAdd: () => import("./skill-item-add")
   },
   data: () => ({
-    title: ""
+    showAddingCard: false,
+    title: "",
+    skill: {
+      title: "",
+      percent: 0,
+      category: 0
+    }
   }),
   computed: {
     ...mapState("categories", {
@@ -60,6 +70,9 @@ export default {
       } catch (error) {
         console.warn(error.message);
       }
+    },
+    hideCard() {
+      this.showAddingCard = false;
     }
   }
 };
