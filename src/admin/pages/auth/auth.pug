@@ -1,15 +1,16 @@
 .login__wrapper
-		.login__content
-			h2.login__title Авторизация
-			form(@submit.prevent="login").login__form
-				.login__row
-					label.login__label.login__label--name
-						p Логин
-						input(type="text" v-model="user.name")
-				.login__row
-					label.login__label.login__label--password
-						p Пароль
-						input(type="password" v-model="user.password")
-				.login__row
-					.login__btn
-						button(type="submit").btn.btn--feedback Отправить
+	.login__content
+		a.btn__close(href="http://onexsan.github.io/filileeva-ls")
+		h2.login__title Авторизация
+		form(@submit.prevent="login").login__form
+			.login__row
+				label.login__label.login__label--name
+					p Логин
+					input.login__input(type="text" placeholder="Логин" v-model="user.name")
+			.login__row
+				label.login__label.login__label--password
+					p Пароль
+					input.login__input(type="password" placeholder="Пароль" v-model="user.password")
+			.login__row
+				.login__btn
+					button(type="submit").btn.btn__auth Отправить

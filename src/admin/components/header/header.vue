@@ -6,20 +6,13 @@
 </style>
 
 <script>
-import axios from "../../requests";
-
+import { mapActions } from "vuex";
 export default {
-  data: () => ({
-    user: {
-      id: ""
-    }
-  }),
   methods: {
-    knowId(user) {
-      axios.get("/user").then(response => {
-        this.user.id = response.data;
-        console.log(response.data);
-      });
+    ...mapActions("user", ["logoutUser"]),
+    async logoutThisUser() {
+      await this.logoutUser();
+      await this.$router.push("/login");
     }
   }
 };

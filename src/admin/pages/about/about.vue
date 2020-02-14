@@ -1,7 +1,6 @@
 <template lang="pug">
 section.section.about
 	.container.about__container
-		pre 
 		.about__intro
 			h2.title.about__title Блок «Обо мне»
 			button.add-btn.add-btn--small(type="button" @click="showAddingCard = true")
@@ -20,13 +19,12 @@ section.section.about
 									button.discard-btn(name="discard-btn")
 										.discard-btn__icon
 							.skill-form__content
-								skill-item(
-									v-for="skill in category.skills"
-									:key="skill.id"
-									:skill="skill"
-								)
+								
 							.skill-form__row
-								skill-item-add(:category="category")
+								input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name" disabled)
+								input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent" disabled)
+								button.add-btn.add-btn--big.add-btn--big.add-btn--disabled(type="submit" name="add-btn")
+									.add-btn__image
 			li.skill-block(v-for="category in categories" :key="category.id")
 				skills-group(
 					:category="category"
@@ -42,33 +40,37 @@ import { mapActions, mapState } from "vuex";
 export default {
   components: {
     skillsGroup: () => import("./skills-group"),
-    skillItem: () => import("./skill-item"),
-    skillItemAdd: () => import("./skill-item-add")
+    skillItem: () => import("./skill-item")
   },
   data: () => ({
     showAddingCard: false,
-    title: "",
-    skill: {
-      title: "",
-      percent: 0,
-      category: 0
-    }
+    title: ""
   }),
   computed: {
     ...mapState("categories", {
       categories: state => state.categories
+    }),
+    ...mapState("user", {
+      userID: state => state.user.id
     })
   },
   created() {
     this.fetchCategories();
+    this.loadCategories(this.userID);
   },
   methods: {
-    ...mapActions("categories", ["addCategory", "fetchCategories"]),
+    ...mapActions("categories", [
+      "addCategory",
+      "fetchCategories",
+      "loadCategories"
+    ]),
     async addNewCategory() {
       try {
         await this.addCategory(this.title);
       } catch (error) {
         console.warn(error.message);
+      } finally {
+        this.showAddingCard = false;
       }
     },
     hideCard() {

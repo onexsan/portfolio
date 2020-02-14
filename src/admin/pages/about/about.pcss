@@ -51,7 +51,7 @@ h3.skill-form__title {
 	min-height: 390px;
 	max-width: 525px;
 	box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
-	margin-right: 10px;
+	margin-right: 20px;
 	margin-bottom: 35px;
 
 	@media screen and (max-width: 1245px) {
@@ -132,6 +132,12 @@ form.skill-form__row.blocked {
   	font-weight: 600;
 	max-width: 273px;
 	width: 65%;
+
+	&:disabled {
+		background-color: transparent;
+		border-bottom: 1px solid gray;
+	}
+
 
 	@media screen and (max-width: 1170px) {
     	font-size: 14px;
@@ -249,6 +255,12 @@ form.skill-form__row.blocked {
 	
 }
 
+.skill-item__input.skill-form__input--percent, .skill-item__input.skill-form__input--skill {
+	width: 100%;
+    margin: 0;
+	border-bottom: 1px solid black;
+}
+
 .skill-item__percent {
 	display: flex;
 	align-items: center;
@@ -256,6 +268,7 @@ form.skill-form__row.blocked {
 
 .skill-group__btns {
 	display: flex;
+	height: 100%;
 }
 
 .skill-item__controls {

@@ -2,10 +2,10 @@
 	ul.skill__list
 		li.skill-item(v-if="editmode === false")
 			.skill-item__name
-				p.skill-item__input {{skill.title}}
+				p {{skill.title}}
 			.skill-item__percent
 				.skill-item__percent-number
-					p.skill-item__input {{skill.percent}}
+					p {{skill.percent}}
 				.skill-item__percent-sign
 					p %
 			.skill-item__controls
@@ -16,17 +16,17 @@
 
 		li.skill-item(v-else)
 			.skill-item__name
-				input.skill-item__input(type="text" placeholder="Title" v-model="editedSkill.title")
+				input.skill-item__input.skill-form__input--skill(type="text" placeholder="Title" v-model="editedSkill.title")
 			.skill-item__percent
 				.skill-item__percent-number
-					input.skill-item__input(type="number" placeholder="100" v-model="editedSkill.percent")
+					input.skill-item__input.skill-form__input--percent(type="number" placeholder="100" v-model="editedSkill.percent" )
 				.skill-item__percent-sign
 					p %
 			.skill-item__controls
-				button(type="button" @click="editExistedSkill")
-					p Сохранить
-				button(type="button" @click="editmode = false" )
-					p Отмена
+				button.accept-btn(type="button" @click="editExistedSkill")
+					.accept-btn__icon
+				button.discard-btn(type="button" @click="editmode = false" )
+					.discard-btn__icon
 </template>
 
 <style lang="postcss" src="./about.pcss">

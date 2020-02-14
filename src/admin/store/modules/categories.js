@@ -1,11 +1,33 @@
+const replaceAllKeys = (category, payload) => {
+	if (category.id === payload.category.id) {
+		Object.keys(category).map(key => {
+			if (payload.category[key]) {
+				return category[key] = payload.category[key];
+			}
+		});
+	}
+
+	return category;
+};
+
 export default {
 	namespaced: true,
 	state: {
 		categories: []
 	},
 	mutations: {
-		SET_CATEGORIES: (state, data) => (state.categories = data),
-		ADD_CATEGORY: (state, category) => state.categories.push(category),
+		SET_CATEGORIES(state, payload) {
+			state.categories = payload;
+		},
+		ADD_CATEGORY: (state, category) => state.categories.unshift(category),
+		DELETE_CATEGORY(state, payload) {
+			state.categories = state.categories.filter(category => {
+				return category.id !== payload;
+			});
+		},
+		UPDATE_CATEGORY(state, payload) {
+			state.categories = state.categories.map(category => replaceAllKeys(category, payload));
+		},
 		ADD_SKILL: (state, newSkill) => {
 			state.categories = state.categories.map(category => {
 				if (category.id === newSkill.category) {
@@ -74,7 +96,40 @@ export default {
 					error.response.data.error || error.response.data.message
 				);
 			}
-		}
+		},
+
+		async deleteCategory(context, payload) {
+			try {
+				const { data } = this.$axios.delete(`/categories/${payload}`);
+				context.commit('DELETE_CATEGORY', payload);
+
+			} catch (error) {
+				throw new Error(
+					error.response.data.error || error.response.data.message
+				);
+			}
+		},
+
+		async updateCategory(context, payload) {
+			try {
+				const { data } = await this.$axios.post(`/categories/${payload.id}`, { title: payload.title });
+				context.commit('UPDATE_CATEGORY', data);
+			} catch (error) {
+				throw new Error(
+					error.response.data.error || error.response.data.message
+				);
+			}
+		},
+
+		async loadCategories(context, payload) {
+			try {
+				const { data } = await this.$axios.get(`/categories/${payload}`);
+				context.commit('SET_CATEGORIES', data);
+			} catch (error) {
+				throw new Error(error.response.data.error || error.response.data.message);
+			}
+		},
 	}
-};
+}
+
 

@@ -44,6 +44,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions("categories", ["addCategory", "loadCategories"]),
     ...mapActions("skills", ["addSkill"]),
     async addNewSkill() {
       try {
