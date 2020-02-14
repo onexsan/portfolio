@@ -3,10 +3,7 @@
 		.skill-form
 			.skill-form__container
 				.skill-form__row
-					h3.skill-form__title {{category.category}}
-					.skill-group__btns
-						button.edit-btn
-							.edit-btn__icon
+					skill-group-title(:category="category")
 				.skill-form__content
 					skill-item(
 						v-for="skill in category.skills"
@@ -27,6 +24,7 @@
 import { mapActions } from "vuex";
 export default {
   components: {
+    skillGroupTitle: () => import("./skill-group-title"),
     skillItem: () => import("./skill-item")
   },
   data() {
