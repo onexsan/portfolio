@@ -1,0 +1,114 @@
+<template lang="pug">
+	.edit-field
+		.edit-field__intro
+			h3.project-form__title Редактирование работы
+		.edit-field__form
+			form.project-form(@reset.prevent="hideAddingCard" @submit.prevent="addWorkCard(newWork)")
+				.project-form__container
+					.project-form__column
+						input.add-image__input#project-image(type="file" @change="addPhoto")
+						.project-form__block(v-if="renderedPhoto")
+							.rendered-image__wrapper
+								.rendered-image(:style="renderedBackground")
+								label.rendered-image__label(for="project-image") Изменить превью
+						.project-form__add-image(v-else)
+							.add-image__desc
+								p Щелкните для загрузки изображения
+								label(for="project-image").form-btn Загрузить
+					.project-form__column
+						.project-form-row
+							label.form__label(for="project-title") Название
+							input.form__input(type="text" name="title" id="project-title" v-model="newWork.title" placeholder="Название проекта")
+						.project-form-row
+							label.form__label(for="project-link") Ссылка
+							input.form__input(type="text" name="link" id="project-link" v-model="newWork.link" placeholder="Ссылка на проект")
+						.project-form-row
+							label.form__label.form__label--textarea(for="project-desc") Описание
+							textarea.form__input.form__input--textarea(name="desc" id="project-desc" v-model="newWork.description" placeholder="Описание проекта")
+						.project-form-row
+							.form-tags__wrapper
+									label.form__label(for="project-tags") Добавление тега
+									input.form__input(type="text" name="tags" id="project-tags" v-model="newWork.techs" placeholder="jQuery, Vue.js, HTML5")
+									projects-tags(:techs="newWork.techs" :tagButton="true" @updateTag="updateTag")
+						.project-form-row.project-form-row--btns
+							button.cancel-btn(type="reset") Отмена
+							button.form-btn(type="submit") Сохранить
+</template>
+
+<script>
+import { mapActions, mapGetters } from "vuex";
+export default {
+  components: {
+    projectsTags: () => import("./projects-tags")
+  },
+  props: {
+    work: Object
+  },
+  data() {
+    return {
+      renderedPhoto: "",
+      newWork: { ...this.work }
+    };
+  },
+  methods: {
+    ...mapActions("works", ["addWork", "updateWork"]),
+    hideAddingCard() {
+      this.$emit("hideAddingCard");
+    },
+    addPhoto(e) {
+      this.newWork.photo = e.target.files[0];
+      const reader = new FileReader();
+
+      try {
+        reader.readAsDataURL(this.newWork.photo);
+        reader.onload = () => {
+          this.renderedPhoto = reader.result;
+        };
+      } catch (error) {}
+    },
+    async addWorkCard() {
+      console.log(this.newWork);
+
+      const isChanged = Object.keys(this.newWork).some(key => {
+        return this.newWork[key] !== this.work[key];
+      });
+
+      if (isChanged) {
+        this.newWork.id
+          ? await this.updateWork(this.newWork)
+          : await this.addWork(this.newWork);
+      }
+
+      this.$emit("hideAddingCard");
+    },
+    updateTag(tags) {
+      this.newWork.techs = tags;
+    }
+  },
+  created() {
+    this.newWork = { ...this.work };
+    if (this.work.photo) {
+      this.renderedPhoto =
+        "https://webdev-api.loftschool.com/" + this.work.photo;
+    }
+  },
+  computed: {
+    ...mapGetters("works", ["getWorks"]),
+    renderedBackground() {
+      return this.renderedPhoto
+        ? `background-image: url(${this.renderedPhoto});`
+        : "";
+    }
+  },
+  watch: {
+    work() {
+      this.newWork = { ...this.work };
+      this.renderedPhoto =
+        "https://webdev-api.loftschool.com/" + this.work.photo;
+    }
+  }
+};
+</script>
+
+<style lang="postcss" src="./projects.pcss">
+</style>

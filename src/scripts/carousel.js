@@ -1,6 +1,12 @@
 import Vue from "vue";
 import { Carousel, Slide } from "vue-carousel";
 import EventBus from "./event.js";
+import axios from "axios";
+
+const $axios = axios.create({
+  baseURL: "https://webdev-api.loftschool.com/"
+});
+
 
 const reviewsItem = {
   template: "#reviews-item",
@@ -54,7 +60,7 @@ const ReviewsCarousel = {
   mounted() {
     this.calcSlidesPerPage(this);
     this.reviews = this.makeArrWithRequiredImages(require("../data/reviews.json"));
-    this.$nextTick(()=> {
+    this.$nextTick(() => {
       EventBus.$emit("pages", this.pages());
     })
   },
