@@ -12,7 +12,7 @@ export default {
     ...mapActions("user", ["logoutUser"]),
     async logoutThisUser() {
       await this.logoutUser();
-      await this.$router.push("/login");
+      await this.$router.replace("/login");
     }
   }
 };

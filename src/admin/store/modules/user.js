@@ -18,6 +18,7 @@ export default {
 		async logoutUser(context, payload) {
 			await this.$axios.post('/logout');
 			context.commit('LOGOUT_USER');
+			localStorage.clear();
 		}
 	},
 	getters: {

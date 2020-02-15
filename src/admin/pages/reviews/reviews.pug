@@ -3,87 +3,14 @@ section.section.reviews
 		.reviews__intro
 			h2.title.reviews__title Блок «Отзывы»
 		.reviews__content
-			.edit-field
-				.edit-field__intro
-					h3.review-form__title Новый отзыв
-				.edit-field__form
-					form.review-form
-						.review-form__container
-							.review-form__column
-								.review-form__image
-									button.add-image
-										.add-image__icon
-										p Добавить фото
-							.review-form__column
-								.review-form-row
-									.review-form-row__block
-										label.form__label(for="author-name") Имя автора
-										input.form__input(type="text" name="name" id="author-name" value="Ковальчук Дмитрий")
-									.review-form-row__block
-										label.form__label(for="author-desc") Титул автора
-										input.form__input(type="text" name="desc" id="author-desc" value="Основатель LoftSchool")
-								.review-form-row
-									.review-form-row__block.review-form-row__block--textarea
-										label.form__label.form__label--textarea(for="review-text") Описание
-										textarea.form__input.form__input--textarea(name="text" id="review-text") Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-								.review-form-row.review-form-row--btns
-									button.cancel-btn Отмена
-									button.form-btn Сохранить
+			.reviews__col(v-if="showAddingCard")
+				reviews-add-new(:review="review" @hideAddingCard="hideAddingCard")
 			.reviews__blocks
 				ul.reviews__list
 					li.block-item.block-item--add.reviews__item
 						.block-item__container
-							button.add-block__btn
+							button.add-block__btn(type="button" @click="showAddingCard = true")
 								.add-block__icon
 								p Добавить отзыв
-					li.block-item.reviews__item
-						.block-item__container
-							.review__author
-								.author__avatar
-									img.author-img(src="../../images/review-2.png", alt="my-avatar")
-								.author__about
-									p.author__name Владимир Сабанцев
-									p.author__info Преподаватель
-							.review__text
-								p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
-							.review__controls
-								button.edit-btn
-									p Править
-									.edit-btn__icon
-								button.discard-btn
-									p Удалить
-									.discard-btn__icon
-					li.block-item.reviews__item
-						.block-item__container
-							.review__author
-								.author__avatar
-									img.author-img(src="../../images/review-1.png", alt="my-avatar")
-								.author__about
-									p.author__name Дмитрий Ковальчук
-									p.author__info Основатель LoftSchool
-							.review__text
-								p Эта девчонка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-							.review__controls
-								button.edit-btn
-									p Править
-									.edit-btn__icon
-								button.discard-btn
-									p Удалить
-									.discard-btn__icon
-					li.block-item.reviews__item
-						.block-item__container
-							.review__author
-								.author__avatar
-									img.author-img(src="../../images/review-2.png", alt="my-avatar")
-								.author__about
-									p.author__name Владимир Сабанцев
-									p.author__info Преподаватель
-							.review__text
-								p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
-							.review__controls
-								button.edit-btn
-									p Править
-									.edit-btn__icon
-								button.discard-btn
-									p Удалить
-									.discard-btn__icon
+					li.block-item.reviews__item(v-for="review in getReviews" :key="review.id")
+						reviews-item(:review="review" @editReview="editReview" @hideAddingCard="hideAddingCard")

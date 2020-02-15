@@ -186,6 +186,7 @@
 	}
 
 	p {
+		color: white;
 		width: 95px;
 		transition: transform .4s ease-in-out;
 		@media screen and (max-width: 768px) {
@@ -339,7 +340,12 @@
 }
 
 .add-image {
-	p {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+	label {
 		margin-top: 25px;
 		font-size: 16px;
 		font-weight: 600;
@@ -348,8 +354,9 @@
 	}
 
 	&:hover {
-		p {
+		label {
 			transform: scale(1.1);
+			cursor: pointer;
 		}
 
 		.add-image__icon:before {
@@ -363,7 +370,16 @@
 	height: 200px;
 	border-radius: 50%;
 	background-color: #dee4ed;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	position: relative;
+}
+
+.add-image__icon.hidden {
+	&:before {
+		display: none;
+	}
 }
 
 .add-image__icon:before {
