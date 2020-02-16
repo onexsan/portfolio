@@ -1,11 +1,8 @@
 import Vue from "vue";
 import { Carousel, Slide } from "vue-carousel";
 import EventBus from "./event.js";
-import axios from "axios";
+import xhr from './xhrRequests';
 
-const $axios = axios.create({
-  baseURL: "https://webdev-api.loftschool.com/"
-});
 
 
 const reviewsItem = {
@@ -48,21 +45,31 @@ const ReviewsCarousel = {
 
       window.addEventListener("resize", calc);
     },
-    makeArrWithRequiredImages(data) {
-      return data.map(item => {
-        const requiredPic = require(`../images/content/${item.photo}`);
-        item.photo = requiredPic;
+    // makeArrWithRequiredImages(data) {
+    //   return data.map(item => {
+    //     const requiredPic = require(`../images/content/${item.photo}`);
+    //     item.photo = requiredPic;
 
-        return item;
-      });
-    }
+    //     return item;
+    //   });
+    // }
   },
   mounted() {
     this.calcSlidesPerPage(this);
-    this.reviews = this.makeArrWithRequiredImages(require("../data/reviews.json"));
-    this.$nextTick(() => {
-      EventBus.$emit("pages", this.pages());
-    })
+    // this.reviews = this.makeArrWithRequiredImages(require("../data/reviews.json"));
+    xhr('get', 'reviews/277')
+      .then(reviews => {
+        return reviews.map(review => {
+          return (review.photo = 'https://webdev-api.loftschool.com/' + review.photo) && review;
+        });
+      })
+      .then(reviews => this.reviews = reviews)
+      .then(this.$nextTick(() => {
+        EventBus.$emit("pages", this.pages());
+      }));
+    // this.$nextTick(() => {
+    //   EventBus.$emit("pages", this.pages());
+    // })
   },
   watch: {
     slidesPerPage() {

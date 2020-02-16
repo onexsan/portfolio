@@ -12,7 +12,7 @@ script(type="text/x-template")#reviews-item
 		.reviews__image
 		.reviews__content
 			.reviews__desc
-				p.reviews__text {{review.reviewText}}
+				p.reviews__text {{review.text}}
 			.reviews__author
 				.author__pic
 					.author__avatar
@@ -20,5 +20,5 @@ script(type="text/x-template")#reviews-item
 							//- +image("content/review-1.png", "author__image")
 							img.author__image(:src="review.photo", alt="")
 				.author__desc
-					p.author__name {{review.authorName}}
-					p.author__info {{review.authorAbout}}
+					p.author__name {{review.author}}
+					p.author__info {{review.occ}}

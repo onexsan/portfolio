@@ -1,4 +1,6 @@
 import Vue from "vue";
+import EventBus from "./event.js";
+import xhr from './xhrRequests';
 
 const thumbs = {
 	template: "#projects-thumbs",
@@ -29,10 +31,10 @@ const info = {
 	components: {
 		tags
 	},
-	props: ["currentWork"],
+	props: ["currentWork", "works"],
 	computed: {
 		tagsArray() {
-			return this.currentWork.skills.split(', ');
+			return this.currentWork.techs.split(', ');
 		}
 	}
 }
@@ -55,13 +57,20 @@ new Vue({
 		}
 	},
 	methods: {
-		makeArrWithRequiredImages(data) {
-			return data.map(item => {
-				const requiredPic = require(`../images/content/${item.photo}`);
-				item.photo = requiredPic;
+		// makeArrWithRequiredImages(data) {
+		// 	return data.map(item => {
+		// 		const requiredPic = require(`../images/content/${item.photo}`);
+		// 		item.photo = requiredPic;
 
-				return item;
-			})
+		// 		return item;
+		// 	})
+		// },
+		workFunc(work, index) {
+			work.photo = 'https://webdev-api.loftschool.com/' + work.photo;
+			work.techs = work.techs.split(',');
+			work.index = index;
+
+			return work;
 		},
 		handleSlide(direction) {
 			switch (direction) {
@@ -77,20 +86,20 @@ new Vue({
 			const worksAmount = this.works.length - 1;
 			const buttonNext = document.querySelector(".slider-btn__item--next");
 			const buttonPrev = document.querySelector(".slider-btn__item--prev");
-      console.log(value, worksAmount);
+			console.log(value, worksAmount);
 
 
 			if (value === 0) {
 				buttonPrev.setAttribute("disabled", "disabled");
 			} else {
-        buttonPrev.removeAttribute("disabled");
-      }
+				buttonPrev.removeAttribute("disabled");
+			}
 
 			if (value === worksAmount) {
 				buttonNext.setAttribute("disabled", "disabled");
 			} else {
-        buttonNext.removeAttribute("disabled");
-      }
+				buttonNext.removeAttribute("disabled");
+			}
 		}
 
 	},
@@ -100,10 +109,16 @@ new Vue({
 		}
 	},
 	created() {
-		const data = require("../data/projects.json");
-		this.works = this.makeArrWithRequiredImages(data);
-  },
-  mounted () {
-    this.disableButtons(this.currentIndex);
-  }
+		xhr('get', 'works/277')
+			.then(works => works.map((work, index) => this.workFunc(work, index)))
+			.then(works => this.works = works)
+			.then(() => {
+				EventBus.$emit('work', this.works[this.activeWork]);
+			});
+
+		// this.works = this.makeArrWithRequiredImages(data);
+	},
+	mounted() {
+		this.disableButtons(this.currentIndex);
+	}
 });
