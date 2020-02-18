@@ -51,7 +51,7 @@ script(type="text/x-template")#projects-info
 	.projects__data
 		.projects__desc
 			tags(
-				:tags="tagsArray"
+				:tags="currentWork.techs"
 			)
 			.projects__text
 				h4.projects__name {{currentWork.title}}

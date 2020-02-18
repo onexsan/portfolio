@@ -31,12 +31,8 @@ const info = {
 	components: {
 		tags
 	},
-	props: ["currentWork", "works"],
-	computed: {
-		tagsArray() {
-			return this.currentWork.techs.split(', ');
-		}
-	}
+	props: ["currentWork", "works"]
+
 }
 
 new Vue({

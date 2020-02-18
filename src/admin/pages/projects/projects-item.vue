@@ -2,7 +2,7 @@
 	.block-item__container
 		.item__visuals
 			.item__thumb
-				img(:src="workPhoto(work.photo)" style="object-fit: cover; object-position: center")
+				img.project__image(:src="workPhoto(work.photo)" style="object-fit: cover; object-position: center")
 			projects-tags(:techs="work.techs")
 		.projects__item-content
 			.item__info

@@ -86,11 +86,10 @@ export default {
 			}
 		},
 
-		async fetchCategories({ commit }) {
+		async fetchCategories(context, payload) {
 			try {
-				const { data } = await this.$axios.get("/categories/277")
+				const { data } = await this.$axios.get(`/categories/${payload}`);
 				commit("SET_CATEGORIES", data);
-				console.log(data);
 			} catch (error) {
 				throw new Error(
 					error.response.data.error || error.response.data.message
