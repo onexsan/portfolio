@@ -67,12 +67,15 @@ export default {
     async addNewSkill() {
       if (await this.$validate()) {
         try {
-          await this.addSkill(this.skill);
+          if (await this.$validate()) {
+            this.skill.category = this.category.id;
+            await this.addSkill(this.skill);
+            this.skill.title = "";
+            this.skill.percent = 0;
+            this.validation.reset();
+          }
         } catch (error) {
           console.warn(error.message);
-        } finally {
-          this.skill.title = "";
-          this.skill.percent = 0;
         }
       }
     }

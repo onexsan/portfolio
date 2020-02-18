@@ -21,7 +21,10 @@ export default {
 		SET_CATEGORIES(state, payload) {
 			state.categories = payload;
 		},
-		ADD_CATEGORY: (state, category) => state.categories.unshift(category),
+		ADD_CATEGORY: (state, category) => {
+			category.skills = [];
+			state.categories.unshift(category)
+		},
 		DELETE_CATEGORY(state, payload) {
 			state.categories = state.categories.filter(category => {
 				return category.id !== payload;
@@ -32,8 +35,10 @@ export default {
 		},
 		ADD_SKILL: (state, newSkill) => {
 			state.categories = state.categories.map(category => {
+
 				if (category.id === newSkill.category) {
 					category.skills.push(newSkill);
+
 				}
 				return category;
 			});
