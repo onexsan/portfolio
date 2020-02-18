@@ -10,8 +10,12 @@
 							:skill="skill"
 						)
 				form.skill-form__row(@submit.prevent="addNewSkill")
-					input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name" v-model="skill.title")
-					input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent" v-model="skill.percent")
+					.skill-form__group
+						input.skill-form__input.skill-form__input--skill(type="text" placeholder="Новый навык" name="skill-name" v-model="skill.title")
+						tooltip-input(:errorText="validation.firstError('skill.title')")
+					.skill-form__group
+						input.skill-form__input.skill-form__input--percent(type="number" placeholder="100%" name="skill-percent" v-model="skill.percent")
+						tooltip-input(:errorText="validation.firstError('skill.percent')")
 					button.add-btn.add-btn--big(type="submit" name="add-btn")
 						.add-btn__image
 </template>
@@ -21,10 +25,15 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import SimpleVueValidator from "simple-vue-validator";
+
+const Validator = SimpleVueValidator.Validator;
 export default {
+  mixins: [SimpleVueValidator.mixin],
   components: {
     skillGroupTitle: () => import("./skill-group-title"),
-    skillItem: () => import("./skill-item")
+    skillItem: () => import("./skill-item"),
+    tooltipInput: () => import("../../components/tooltip-input/tooltip-input")
   },
   data() {
     return {
@@ -34,6 +43,16 @@ export default {
         category: this.category.id
       }
     };
+  },
+  validators: {
+    "skill.title": value => {
+      return Validator.value(value).required("Заполните название");
+    },
+    "skill.percent": value => {
+      return Validator.value(value)
+        .between(0, 100, "Некорректное значение для процентов")
+        .required("Поле не может быть пустым");
+    }
   },
   props: {
     category: {
@@ -46,13 +65,15 @@ export default {
     ...mapActions("categories", ["addCategory", "loadCategories"]),
     ...mapActions("skills", ["addSkill"]),
     async addNewSkill() {
-      try {
-        await this.addSkill(this.skill);
-      } catch (error) {
-        console.warn(error.message);
-      } finally {
-        this.skill.title = "";
-        this.skill.percent = 0;
+      if (await this.$validate()) {
+        try {
+          await this.addSkill(this.skill);
+        } catch (error) {
+          console.warn(error.message);
+        } finally {
+          this.skill.title = "";
+          this.skill.percent = 0;
+        }
       }
     }
   }

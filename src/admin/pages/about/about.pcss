@@ -140,7 +140,6 @@ form.skill-form__row.blocked {
 	font-size: 18px;
   	font-weight: 600;
 	max-width: 273px;
-	width: 65%;
 
 	&:disabled {
 		background-color: transparent;
@@ -169,6 +168,15 @@ form.skill-form__row.blocked {
 	}
 }
 
+.skill-form__group {
+	position: relative;
+	width: 50%;
+	&:nth-child(2) {
+		width: 20%;
+		margin-right: 10px;
+	}
+}
+
 .skill-form__content {
 	min-height: 180px;
 }
@@ -176,7 +184,7 @@ form.skill-form__row.blocked {
 
 .skill-form__input--skill {
 	max-width: 220px;
-	width: 55%;
+	width: 100%;
 	font-size: 16px;
 	font-weight: 400px;
 
@@ -200,7 +208,7 @@ form.skill-form__row.blocked {
 }
 
 .skill-form__input--percent {
-	width: 20%;
+	width: 100%;
 	max-width: 85px;
 	margin-left: 10px;
 	font-size: 16px;
@@ -208,7 +216,7 @@ form.skill-form__row.blocked {
 	margin-right: 30px;
 
 	@media screen and (max-width: 1170px) {
-    	width: 25%;
+    	
 		font-size: 14px;
   	}
 
@@ -216,9 +224,7 @@ form.skill-form__row.blocked {
     	font-size: 12px;
   	}
 
-	  @media screen and (max-width: 338px) {
-		width: 30%
-  	}
+	
 }
 
 

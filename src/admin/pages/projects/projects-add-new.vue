@@ -15,20 +15,25 @@
 							.add-image__desc
 								p Щелкните для загрузки изображения
 								label(for="project-image").form-btn Загрузить
+								tooltip-input(:errorText="validation.firstError('newWork.photo')")
 					.project-form__column
 						.project-form-row
 							label.form__label(for="project-title") Название
 							input.form__input(type="text" name="title" id="project-title" v-model="newWork.title" placeholder="Название проекта")
+							tooltip-input(:errorText="validation.firstError('newWork.title')")
 						.project-form-row
 							label.form__label(for="project-link") Ссылка
 							input.form__input(type="text" name="link" id="project-link" v-model="newWork.link" placeholder="Ссылка на проект")
-						.project-form-row
+							tooltip-input(:errorText="validation.firstError('newWork.link')")
+						.project-form-row.project-form-row--textarea
 							label.form__label.form__label--textarea(for="project-desc") Описание
 							textarea.form__input.form__input--textarea(name="desc" id="project-desc" v-model="newWork.description" placeholder="Описание проекта")
+							tooltip-input(:errorText="validation.firstError('newWork.description')")
 						.project-form-row
 							.form-tags__wrapper
 									label.form__label(for="project-tags") Добавление тега
 									input.form__input(type="text" name="tags" id="project-tags" v-model="newWork.techs" placeholder="jQuery, Vue.js, HTML5")
+									tooltip-input(:errorText="validation.firstError('newWork.techs')")
 									projects-tags(:techs="newWork.techs" :tagButton="true" @updateTag="updateTag")
 						.project-form-row.project-form-row--btns
 							button.cancel-btn(type="reset") Отмена
@@ -37,9 +42,13 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import simpleVueValidator from "simple-vue-validator";
+const { Validator } = simpleVueValidator;
 export default {
+  mixins: [simpleVueValidator.mixin],
   components: {
-    projectsTags: () => import("./projects-tags")
+    projectsTags: () => import("./projects-tags"),
+    tooltipInput: () => import("../../components/tooltip-input/tooltip-input")
   },
   props: {
     work: Object
@@ -49,6 +58,23 @@ export default {
       renderedPhoto: "",
       newWork: { ...this.work }
     };
+  },
+  validators: {
+    "newWork.title": function(value) {
+      return Validator.value(value).required();
+    },
+    "newWork.link": function(value) {
+      return Validator.value(value).required();
+    },
+    "newWork.description": function(value) {
+      return Validator.value(value).required();
+    },
+    "newWork.techs": function(value) {
+      return Validator.value(value).required();
+    },
+    "newWork.photo": function(value) {
+      return Validator.value(value).required();
+    }
   },
   methods: {
     ...mapActions("works", ["addWork", "updateWork"]),
@@ -68,24 +94,26 @@ export default {
       } catch (error) {}
     },
     async addWorkCard() {
-      try {
-        const isChanged = Object.keys(this.newWork).some(key => {
-          return this.newWork[key] !== this.work[key];
-        });
+      if (await this.$validate()) {
+        try {
+          const isChanged = Object.keys(this.newWork).some(key => {
+            return this.newWork[key] !== this.work[key];
+          });
 
-        if (isChanged) {
-          this.newWork.id
-            ? await this.updateWork(this.newWork)
-            : await this.addWork(this.newWork);
+          if (isChanged) {
+            this.newWork.id
+              ? await this.updateWork(this.newWork)
+              : await this.addWork(this.newWork);
+          }
+          this.showTooltip({
+            type: "success",
+            message: "Работа успешно добавлена"
+          });
+        } catch ({ message }) {
+          this.showTooltip({ type: "error", message });
+        } finally {
+          this.$emit("hideAddingCard");
         }
-        this.showTooltip({
-          type: "success",
-          message: "Работа успешно добавлена"
-        });
-      } catch ({ message }) {
-        this.showTooltip({ type: "error", message });
-      } finally {
-        this.$emit("hideAddingCard");
       }
     },
     updateTag(tags) {

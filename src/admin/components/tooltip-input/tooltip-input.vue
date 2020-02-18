@@ -2,7 +2,7 @@
 	.input-tooltip(:class="{ 'input-tooltip--shown': errorText }") {{ errorText }}
 </template>
 
-<style lang="postcss">
+<style lang="postcss" src="./tooltip-input.pcss">
 </style>
 
 <script>
