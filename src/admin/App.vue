@@ -4,11 +4,15 @@
     router-view(name="tabs")
     .page__wrapper
       router-view
-      
+    page-tooltip()
 </template>
 
 <script>
-export default {};
+export default {
+  components: {
+    pageTooltip: () => import("./components/tooltip/tooltip")
+  }
+};
 </script>
 
 
