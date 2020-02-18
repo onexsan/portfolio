@@ -1,21 +1,23 @@
-.tooltip {
-  &-container {
-    width: 100%;
+.tooltip-container {
+  width: 100%;
     display: flex;
     justify-content: center;
     position: fixed;
     bottom: -100%;
     left: 50%;
     transform: translateX(-50%);
-    visibility: hidden;
+    opacity: 0;
     transition: 0.3s;
+    z-index: 30;
 
     &.shown {
       bottom: 0;
-      visibility: visible;
+      opacity: 1;
     }
-  }
+}
 
+.tooltip {
+  z-index: 40;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -34,6 +36,10 @@
     margin-left: 20px;
   }
 
+  &--success {
+    background: #4bb133;
+  }
+
   &--warning {
     background: #b18333;
   }
@@ -42,3 +48,4 @@
     background: #b13333;
   }
 }
+

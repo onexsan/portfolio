@@ -1,14 +1,14 @@
+import showErrorTooltip from '../../helpers/showErrorTooltip';
+
 export default {
 	namespaced: true,
 	actions: {
-		async addSkill({ commit }, skill) {
+		async addSkill(context, payload) {
 			try {
-				const { data } = await this.$axios.post("/skills", skill);
-				commit("categories/ADD_SKILL", data, { root: true });
+				const { data } = await this.$axios.post('/skills', payload);
+				context.commit('categories/ADD_SKILL', data, { root: true });
 			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
+				showErrorTooltip(context, error);
 			}
 		},
 
@@ -16,7 +16,9 @@ export default {
 			try {
 				const { data } = await this.$axios.delete(`/skills/${skill.id}`);
 				commit("categories/REMOVE_SKILL", skill, { root: true });
-			} catch (error) { }
+			} catch (error) {
+				showErrorTooltip(context, error);
+			}
 		},
 
 		async editSkill({ commit }, editedSkill) {
@@ -26,9 +28,7 @@ export default {
 				} = await this.$axios.post(`/skills/${editedSkill.id}`, editedSkill)
 				commit("categories/EDIT_SKILL", skill, { root: true });
 			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
+				showErrorTooltip(context, error);
 			}
 		},
 	}

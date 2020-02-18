@@ -1,3 +1,5 @@
+import showErrorTooltip from '../../helpers/showErrorTooltip';
+
 const replaceAllKeys = (category, payload) => {
 	if (category.id === payload.category.id) {
 		Object.keys(category).map(key => {
@@ -75,50 +77,6 @@ export default {
 		},
 	},
 	actions: {
-		async addCategory({ commit }, title) {
-			try {
-				const { data } = await this.$axios.post("/categories", { title });
-				commit("ADD_CATEGORY", data);
-			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
-			}
-		},
-
-		async fetchCategories(context, payload) {
-			try {
-				const { data } = await this.$axios.get(`/categories/${payload}`);
-				commit("SET_CATEGORIES", data);
-			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				);
-			}
-		},
-
-		async deleteCategory(context, payload) {
-			try {
-				const { data } = this.$axios.delete(`/categories/${payload}`);
-				context.commit('DELETE_CATEGORY', payload);
-
-			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				);
-			}
-		},
-
-		async updateCategory(context, payload) {
-			try {
-				const { data } = await this.$axios.post(`/categories/${payload.id}`, { title: payload.title });
-				context.commit('UPDATE_CATEGORY', data);
-			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				);
-			}
-		},
 
 		async loadCategories(context, payload) {
 			try {
@@ -128,6 +86,36 @@ export default {
 				throw new Error(error.response.data.error || error.response.data.message);
 			}
 		},
+
+		async addCategory({ commit }, title) {
+			try {
+				const { data } = await this.$axios.post("/categories", { title });
+				commit("ADD_CATEGORY", data);
+			} catch (error) {
+				showErrorTooltip(context, error);
+			}
+		},
+
+		async deleteCategory(context, payload) {
+			try {
+				const { data } = this.$axios.delete(`/categories/${payload}`);
+				context.commit('DELETE_CATEGORY', payload);
+
+			} catch (error) {
+				showErrorTooltip(context, error);
+			}
+		},
+
+		async updateCategory(context, payload) {
+			try {
+				const { data } = await this.$axios.post(`/categories/${payload.id}`, { title: payload.title });
+				context.commit('UPDATE_CATEGORY', data);
+			} catch (error) {
+				showErrorTooltip(context, error)
+			}
+		},
+
+
 	}
 }
 

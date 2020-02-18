@@ -1,4 +1,5 @@
 import formData from '../../helpers/formData';
+import showErrorTooltip from '../../helpers/showErrorTooltip';
 
 export default {
 	namespaced: true,
@@ -31,6 +32,7 @@ export default {
 				const { data } = await this.$axios.get(`/works/${payload}`);
 				context.commit('LOAD_WORKS', data);
 			} catch (error) {
+				showErrorTooltip(context, error);
 			}
 		},
 		async addWork(context, payload) {
@@ -38,6 +40,7 @@ export default {
 				const { data } = await this.$axios.post('/works', formData(payload), { headers: { 'Content-Type': 'multipart/form-data' } });
 				context.commit('ADD_WORK', data);
 			} catch (error) {
+				showErrorTooltip(context, error);
 			}
 		},
 		async updateWork(context, payload) {
@@ -45,6 +48,7 @@ export default {
 				const { data } = await this.$axios.post(`/works/${payload.id}`, formData(payload), { headers: { 'Content-Type': 'multipart/form-data' } });
 				context.commit('UPDATE_WORK', data);
 			} catch (error) {
+				showErrorTooltip(context, error);
 			}
 		},
 		async deleteWork(context, payload) {
@@ -52,6 +56,7 @@ export default {
 				await this.$axios.delete(`/works/${payload}`);
 				context.commit('DELETE_WORK', payload);
 			} catch (error) {
+				showErrorTooltip(context, error);
 			}
 		}
 	},

@@ -7,6 +7,8 @@
 
 <script>
 import $axios from "../../requests";
+import { mapActions } from "vuex";
+
 export default {
   data: () => ({
     user: {
@@ -15,6 +17,7 @@ export default {
     }
   }),
   methods: {
+    ...mapActions("tooltip", ["showTooltip"]),
     async login() {
       try {
         const response = await $axios.post("/login", this.user);
@@ -26,7 +29,12 @@ export default {
         $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
 
         this.$router.replace("/");
-      } catch (error) {}
+      } catch ({ message }) {
+        if (message === "Request failed with status code 403") {
+          message = "Такого пользователя не существует";
+        }
+        this.showTooltip({ type: "error", message });
+      }
     }
   }
 };

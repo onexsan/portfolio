@@ -29,9 +29,18 @@ export default {
   },
   methods: {
     ...mapActions("reviews", ["deleteReview"]),
+    ...mapActions("tooltip", ["showTooltip"]),
     deleteThisReview(payload) {
-      this.$emit("hideAddingCard");
-      this.deleteReview(payload);
+      try {
+        this.$emit("hideAddingCard");
+        this.deleteReview(payload);
+        this.showTooltip({
+          type: "success",
+          message: "Отзыв успешно удален"
+        });
+      } catch ({ message }) {
+        this.showTooltip({ type: "error", message });
+      }
     },
     editReview() {
       this.$emit("editReview", this.review);

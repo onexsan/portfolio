@@ -1,4 +1,5 @@
 import formData from '../../helpers/formData';
+import showErrorTooltip from '../../helpers/showErrorTooltip';
 
 export default {
 	namespaced: true,
@@ -31,9 +32,7 @@ export default {
 				const { data } = await this.$axios.get(`/reviews/${payload}`);
 				context.commit('LOAD_REVIEWS', data);
 			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
+				showErrorTooltip(context, error);
 			}
 		},
 		async addReview(context, payload) {
@@ -41,9 +40,7 @@ export default {
 				const { data } = await this.$axios.post('/reviews', formData(payload), { headers: { 'Content-Type': 'multipart/form-data' } });
 				context.commit('ADD_REVIEW', data);
 			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
+				showErrorTooltip(context, error);
 			}
 		},
 		async updateReview(context, payload) {
@@ -52,9 +49,7 @@ export default {
 				context.commit('UPDATE_REVIEW', data);
 				console.log(data);
 			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
+				showErrorTooltip(context, error);
 			}
 		},
 		async deleteReview(context, payload) {
@@ -62,9 +57,7 @@ export default {
 				await this.$axios.delete(`/reviews/${payload}`);
 				context.commit('DELETE_REVIEW', payload);
 			} catch (error) {
-				throw new Error(
-					error.response.data.error || error.response.data.message
-				)
+				showErrorTooltip(context, error);
 			}
 		}
 	},

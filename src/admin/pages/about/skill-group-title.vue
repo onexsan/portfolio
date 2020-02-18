@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     ...mapActions("categories", ["deleteCategory", "updateCategory"]),
+    ...mapActions("tooltip", ["showTooltip"]),
     async changeCategoryTitle() {
       if (this.newTitle === this.category.category) {
         return (this.editMode = false);
@@ -51,12 +52,20 @@ export default {
       await this.updateCategory({ title: this.newTitle, id: this.category.id });
     },
     async deleteSkillGroup() {
-      if (!this.category.id) {
-        return this.$emit("hideCard");
+      try {
+        if (!this.category.id) {
+          return this.$emit("hideCard");
+        }
+        this.editMode = false;
+        await this.deleteCategory(this.category.id);
+        this.showTooltip({
+          type: "success",
+          message: "Категория успешно удалена"
+        });
+      } catch ({ message }) {
+        this.showTooltip({ type: "error", message });
+      } finally {
       }
-
-      this.editMode = false;
-      await this.deleteCategory(this.category.id);
     }
   },
   watch: {

@@ -23,12 +23,6 @@ export default {
 	},
 	actions: {
 		showTooltip(context, payload) {
-			const availableTypeOptions = ["success", "warning", "error"];
-
-			if (availableTypeOptions.includes(payload.type) === false) {
-				console.warn("Передан недопустимый тип для тултипов");
-			}
-
 			context.commit("SET_VISIBILITY", true);
 			context.commit("SET_TYPE", payload.type);
 			context.commit("SET_MESSAGE", payload.message);

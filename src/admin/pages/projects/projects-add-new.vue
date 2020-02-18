@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     ...mapActions("works", ["addWork", "updateWork"]),
+    ...mapActions("tooltip", ["showTooltip"]),
     hideAddingCard() {
       this.$emit("hideAddingCard");
     },
@@ -67,19 +68,25 @@ export default {
       } catch (error) {}
     },
     async addWorkCard() {
-      console.log(this.newWork);
+      try {
+        const isChanged = Object.keys(this.newWork).some(key => {
+          return this.newWork[key] !== this.work[key];
+        });
 
-      const isChanged = Object.keys(this.newWork).some(key => {
-        return this.newWork[key] !== this.work[key];
-      });
-
-      if (isChanged) {
-        this.newWork.id
-          ? await this.updateWork(this.newWork)
-          : await this.addWork(this.newWork);
+        if (isChanged) {
+          this.newWork.id
+            ? await this.updateWork(this.newWork)
+            : await this.addWork(this.newWork);
+        }
+        this.showTooltip({
+          type: "success",
+          message: "Работа успешно добавлена"
+        });
+      } catch ({ message }) {
+        this.showTooltip({ type: "error", message });
+      } finally {
+        this.$emit("hideAddingCard");
       }
-
-      this.$emit("hideAddingCard");
     },
     updateTag(tags) {
       this.newWork.techs = tags;

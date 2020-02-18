@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     ...mapActions("works", ["deleteWork"]),
+    ...mapActions("tooltip", ["showTooltip"]),
     workPhoto(photo) {
       return `https://webdev-api.loftschool.com/${photo}`;
     },
@@ -42,7 +43,15 @@ export default {
       this.$emit("editWork", this.work);
     },
     deleteThisWork(payload) {
-      this.deleteWork(payload);
+      try {
+        this.deleteWork(payload);
+        this.showTooltip({
+          type: "success",
+          message: "Работа успешно удалена"
+        });
+      } catch ({ message }) {
+        this.showTooltip({ type: "error", message });
+      }
     }
   }
 };

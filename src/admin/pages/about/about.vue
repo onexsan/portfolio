@@ -55,20 +55,20 @@ export default {
     })
   },
   created() {
-    this.fetchCategories();
     this.loadCategories(this.userID);
   },
   methods: {
-    ...mapActions("categories", [
-      "addCategory",
-      "fetchCategories",
-      "loadCategories"
-    ]),
+    ...mapActions("categories", ["addCategory", "loadCategories"]),
+    ...mapActions("tooltip", ["showTooltip"]),
     async addNewCategory() {
       try {
         await this.addCategory(this.title);
-      } catch (error) {
-        console.warn(error.message);
+        this.showTooltip({
+          type: "success",
+          message: "Категория успешно добавлена"
+        });
+      } catch ({ message }) {
+        this.showTooltip({ type: "error", message });
       } finally {
         this.showAddingCard = false;
       }

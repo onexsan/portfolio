@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     ...mapActions("reviews", ["addReview", "updateReview"]),
-
+    ...mapActions("tooltip", ["showTooltip"]),
     hideAddingCard() {
       this.$emit("hideAddingCard");
     },
@@ -63,17 +63,26 @@ export default {
     },
 
     async addReviewCard(payload) {
-      const isChanged = Object.keys(this.newReview).some(key => {
-        return this.newReview[key] !== this.review[key];
-      });
+      try {
+        const isChanged = Object.keys(this.newReview).some(key => {
+          return this.newReview[key] !== this.review[key];
+        });
 
-      if (isChanged) {
-        payload.id
-          ? await this.updateReview(payload)
-          : await this.addReview(payload);
+        if (isChanged) {
+          payload.id
+            ? await this.updateReview(payload)
+            : await this.addReview(payload);
+        }
+
+        this.showTooltip({
+          type: "success",
+          message: "Отзыв успешно добавлен"
+        });
+      } catch ({ message }) {
+        this.showTooltip({ type: "error", message });
+      } finally {
+        this.$emit("hideAddingCard");
       }
-
-      this.$emit("hideAddingCard");
     }
   },
   computed: {
