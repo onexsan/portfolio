@@ -55,16 +55,16 @@ export default {
   },
   validators: {
     "newReview.author": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Добавьте имя");
     },
     "newReview.occ": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Добавьте титул");
     },
     "newReview.text": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Заполните отзыв");
     },
     "newReview.photo": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Добавьте фото");
     }
   },
   methods: {

@@ -61,19 +61,19 @@ export default {
   },
   validators: {
     "newWork.title": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Заполните название");
     },
     "newWork.link": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Добавьте ссылку");
     },
     "newWork.description": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Заполните описание");
     },
     "newWork.techs": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Добавьте теги");
     },
     "newWork.photo": function(value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Добавьте фото");
     }
   },
   methods: {
