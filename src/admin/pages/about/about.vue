@@ -13,6 +13,7 @@ section.section.about
 						.skill-form__container
 							form.skill-form__row(@submit.prevent="addNewCategory")
 								input.skill-form__input.skill-form__input--group(type="text" v-model="title" placeholder="Название новой группы" name="skill-group")
+								tooltip-input(:errorText="validation.firstError('title')")
 								.skill-group__btns
 									button.accept-btn(type="submit" name="accept-btn")
 										.accept-btn__icon
@@ -36,16 +37,25 @@ section.section.about
 
 <script>
 import { mapActions, mapState } from "vuex";
+import SimpleVueValidator from "simple-vue-validator";
 
+const Validator = SimpleVueValidator.Validator;
 export default {
+  mixins: [SimpleVueValidator.mixin],
   components: {
     skillsGroup: () => import("./skills-group"),
-    skillItem: () => import("./skill-item")
+    skillItem: () => import("./skill-item"),
+    tooltipInput: () => import("../../components/tooltip-input/tooltip-input")
   },
   data: () => ({
     showAddingCard: false,
     title: ""
   }),
+  validators: {
+    title: value => {
+      return Validator.value(value).required("Заполните название");
+    }
+  },
   computed: {
     ...mapState("categories", {
       categories: state => state.categories
@@ -61,16 +71,18 @@ export default {
     ...mapActions("categories", ["addCategory", "loadCategories"]),
     ...mapActions("tooltip", ["showTooltip"]),
     async addNewCategory() {
-      try {
-        await this.addCategory(this.title);
-        this.showTooltip({
-          type: "success",
-          message: "Категория успешно добавлена"
-        });
-      } catch ({ message }) {
-        this.showTooltip({ type: "error", message });
-      } finally {
-        this.showAddingCard = false;
+      if (await this.$validate()) {
+        try {
+          await this.addCategory(this.title);
+          this.showTooltip({
+            type: "success",
+            message: "Категория успешно добавлена"
+          });
+        } catch ({ message }) {
+          this.showTooltip({ type: "error", message });
+        } finally {
+          this.showAddingCard = false;
+        }
       }
     },
     hideCard() {
