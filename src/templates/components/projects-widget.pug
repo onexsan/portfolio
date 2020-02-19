@@ -1,0 +1,69 @@
+script(type="text/x-template")#projects-widget
+	.projects__slider
+		display(
+			:works="works",
+			:currentWork="currentWork",
+			:currentIndex="currentIndex",
+			@slide="handleSlide"
+		)
+		info(
+			:works="works",
+			:currentWork="currentWork"
+		)
+
+script(type="text/x-template")#projects-display
+	.projects__visuals(:data-slide="currentIndex + 1")
+		.slider__content
+			
+			.slider__picture
+				.slider__preview
+					img.slider__image(:src="currentWork.photo", alt="")
+				
+			.slider__controls
+				.slider__row
+					thumbs(
+						:works="works",
+						:currentWork="currentWork"
+					)
+					
+				.slider__btns
+					btns(
+						@slide="$emit('slide', $event)",
+						:works="works",
+						:currentWork="currentWork"
+					)
+
+script(type="text/x-template")#projects-thumbs
+	.slider__row-list
+		.slider__row-item(v-for="work in works", :class="{active: work.id === currentWork.id}")
+			a.slider__row-link(href="#")
+				img.slider__row-image(:src="work.photo", alt="")
+		
+
+script(type="text/x-template")#projects-btns
+	.slider-btn
+		button.slider-btn__item.slider-btn__item--prev(@click.prevent="$emit('slide', 'prev')")
+			+icon("short-arrow","slider-btn__icon slider-btn__icon--left")
+		button.slider-btn__item.slider-btn__item--next(@click.prevent="$emit('slide', 'next')")
+			+icon("short-arrow","slider-btn__icon slider-btn__icon--right")
+
+script(type="text/x-template")#projects-info
+	.projects__data
+		.projects__desc
+			tags(
+				:tags="currentWork.techs"
+			)
+			.projects__text
+				h4.projects__name {{currentWork.title}}
+				.projects__about 
+					p.projects__info {{currentWork.description}}
+				.projects__link
+					a.iconed-link(:href="currentWork.link" target="_blank")
+						.iconed-link__image
+							+icon("link", "iconed-link__icon")
+						p.iconed-link__text Посмотреть сайт
+
+script(type="text/x-template")#projects-tags
+	.projects__tags
+		.tags__item(v-for="tag in tags")
+			a.tags__link(href="#" target="_blank") {{tag}}

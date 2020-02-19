@@ -1,0 +1,24 @@
+script(type="text/x-template")#reviews-widget
+
+	carousel.reviews__slider-container(@pageChange="pageChange" :scrollPerPage="true" :navigationEnabled="true" :paginationEnabled="false" :perPageCustom="[[0, 1], [700, 2]]")
+		slide.reviews__item-container(v-for="review in reviews")
+			reviews-item(
+				:review="review"
+			)
+
+script(type="text/x-template")#reviews-item
+	
+	.reviews__item
+		.reviews__image
+		.reviews__content
+			.reviews__desc
+				p.reviews__text {{review.text}}
+			.reviews__author
+				.author__pic
+					.author__avatar
+						.avatar
+							//- +image("content/review-1.png", "author__image")
+							img.author__image(:src="review.photo", alt="")
+				.author__desc
+					p.author__name {{review.author}}
+					p.author__info {{review.occ}}

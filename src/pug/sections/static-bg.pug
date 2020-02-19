@@ -1,0 +1,27 @@
+.static-bg
+	.bg-train
+		- 
+			var 
+				bg1200 = `
+					${require('../../images/backgrounds/bg-1200@1x.png')} 1x,
+					${require('../../images/backgrounds/bg-1200@2x.png')} 2x
+				`;
+		- 
+			var 
+				bg768 = `
+					${require('../../images/backgrounds/bg-768@1x.png')} 1x,
+					${require('../../images/backgrounds/bg-768@2x.png')} 2x
+				`;
+		- 
+			var 
+				bg320 = `
+					${require('../../images/backgrounds/bg-320@1x.png')} 1x,
+					${require('../../images/backgrounds/bg-320@2x.png')} 2x
+				`;
+		picture
+			source(class="bg-train__img" media="(max-width:1199px)" srcset=bg1200)
+			source(class="bg-train__img" media="(max-width:768px)" srcset=bg768)
+			source(class="bg-train__img" media="(max-width:320px)" srcset=bg320)
+			img(class="bg-train__img" src="")
+		.bg-train__darker-layer
+			.bg-train__gradient

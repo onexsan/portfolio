@@ -25,7 +25,7 @@
 	background-image: linear-gradient(to right, #ff7f00, #ff8700, #ff8e00, #ff9600, #ff9d00);
 	border: 1px solid transparent;
 	color: white;
-  	font-weight: bold;
+		font-weight: bold;
 	text-transform: uppercase;
 	padding: 1.9rem 7.5rem; 
 	font-size: 1.2rem;
@@ -33,12 +33,20 @@
 	&:hover {
 		background-image: linear-gradient(to right, #ff9d00, #ff9d00, #ff9d00, #ff9d00, #ff9d00);;
 	}
+
+	@include tablets {
+		padding: 1.9rem 8.5rem;
+	}
+
+	@include phones {
+		padding: 24px 80px;
+	}
 }
 
 .slider-btn__item {
 	background-color: #2d3c4e;
-    color: white;
-    width: 3.5rem;
+		color: white;
+		width: 3.5rem;
 	height: 3.5rem;
 	display: flex;
 	align-items: center;
@@ -51,50 +59,70 @@
 	&:focus {
 		outline: 1px solid orange;
 	}
+
+	&:disabled {
+		background-color: gray;
+	}
 }
 
-.double-btn__item {
+.control-btn  {
 	background-color: transparent;
 	border: 1px solid white;
 	border-radius: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
+		width: 3.5rem;
+		height: 3.5rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-right: 1.25rem;
+	z-index: 10;
 
 	&:last-child {
 		margin-right: 0;
 	}
 
 	&:hover {
-		opacity: .7;
+		border: 1px solid orange;
+
+		.control-btn__icon {
+			fill: orange;
+		}
 	}
 
 	&:focus {
 		outline: 1px solid orange;
+	}
+
+	&:disabled {
+		opacity: .3;
 	}
 }
 
 .slider-btn {
 	display: flex;
 	flex-direction: column;
+
+	@include phones {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
 }
 
-.double-btn {
+.reviews-controls {
 	display: flex;
+	z-index: 10;
 }
 
 
-.slider-btn__icon--left, .double-btn__icon--left {
+.slider-btn__icon--left, .control-btn__icon--left {
 	height: 10px;
 	width: 10px;
 	fill: white;
 	transform: rotate(180deg);
 }
 
-.slider-btn__icon--right, .double-btn__icon--right {
+.slider-btn__icon--right, .control-btn__icon--right {
 	height: 10px;
 	width: 10px;
 	fill: white;
@@ -110,8 +138,8 @@
 	}
 }
  
-.double-btn__item--inactive {
-	.double-btn__icon {
+.control-btn--inactive {
+	.control-btn__icon {
 		fill: gray;
 	}
 	
@@ -120,4 +148,16 @@
 	&:hover {
 		opacity: 1;
 	}
+}
+
+.reviews-controls__item {
+	margin-right: 15px;
+}
+
+.reviews__control-panel {
+	z-index: 10;
+}
+
+.VueCarousel-navigation {
+	display: none;
 }

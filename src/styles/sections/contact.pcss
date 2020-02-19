@@ -2,11 +2,79 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	margin-bottom: 120px;
+	padding-bottom: 120px;
+
+	@include tablets {
+		padding-bottom: 110px;
+		align-items: center;
+		padding-top: 10px;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	@include phones {
+		padding: 0.625rem 0 110px;
+	}
 }
 
 .contact__title {
 	color: white;
 	margin-bottom: 5rem;
+
+	@include tablets {
+		margin-bottom: 60px;
+	}
+
+	@include phones {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 55px;
+	}
+}
+
+.contact__container:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 10%;
+	width: 120px;
+	height: 90px;
+	background-image: url('~images/backgrounds/leaf-3.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 5;
+
+	@include tablets {
+		right: -5%;
+	}
+
+	@include phones {
+		display: none;
+	}
+}
+
+.contact__container:after {
+	content: "";
+	position: absolute;
+	bottom: 20%;
+	right: 5%;
+	width: 420px;
+	height: 250px;
+	background-image: url('~images/backgrounds/leaf-4.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 5;
+
+	@include tablets {
+		width: 250px;
+		height: 170px;
+		right: -5%;
+	}
+
+	@include phones {
+		display: none;
+	}
 }
 

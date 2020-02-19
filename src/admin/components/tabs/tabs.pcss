@@ -1,0 +1,68 @@
+.tabs {
+	background-color: white;
+}
+
+.tabs__container {
+	display: flex;
+	padding: 0px 30px;
+
+	@media screen and (max-width: 470px) {
+		padding: 0px;
+	}
+
+	@media screen and (max-width: 320px) {
+		padding: 0px 20px;
+	}
+}
+
+.tabs__item {
+	padding: 30px;
+	margin-right: 5px;
+	min-width: 130px;
+	border-bottom: 3px solid transparent;
+
+	@media screen and (max-width: 480px) {
+		padding: 30px 20px;
+	}
+
+	@media screen and (max-width: 370px) {
+		padding: 30px 10px;
+		min-width: 100px;
+	}
+
+	@media screen and (max-width: 326px) {
+		padding: 30px 0px;
+		text-align: center;
+		min-width: 100px;
+	}
+
+	&:hover {
+		border-bottom: 3px solid #383bcf;
+		.tabs__btn {
+			font-weight: 600;
+			color: #383bcf;
+		}
+	}
+
+	.tabs__btn {
+		background-color: transparent;
+		font-size: 16px;
+			font-weight: 400;
+		color: #414c63;
+
+		&:focus {
+			outline: 1px solid lightgray;
+		}
+
+
+	}
+
+	&.router-link-exact-active {
+		border-bottom: 3px solid #383bcf;
+		.tabs__btn {
+			font-weight: 600;
+			color: #383bcf;
+		}
+
+	}
+}

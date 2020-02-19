@@ -6,20 +6,49 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding: 5.65rem 0.125rem 0;
+	padding: 80px 0.125rem;
+
+	@include tablets {
+		padding: 60px 40px;
+		justify-content: space-between;
+	}
+
+	@include phones {
+		padding: 3.75rem 5px;
+		flex-direction: column;
+	}
 }
 
 .footer__left {
 	display: flex;
-    justify-content: space-between;
-    width: 35%;
-    margin-right: 4.375rem;
+	justify-content: space-between;
+	width: 35%;
+	margin-right: 4.375rem;
+
+	@media screen and (max-width: 975px) {
+		margin-right: 5.125rem;
+		flex-direction: column; 
+		width: 25%;
+		}
+
+	@include phones {
+		width: 100%;
+		margin-bottom: 2rem;
+	}
 }
 
 .footer__menu {
 	display: flex;
 	flex-direction: column;
 	width: 80%;
+
+	@include tablets {
+		width: 70%;
+	}
+
+	@include phones {
+		width: 100%;
+	}
 	
 	&-row {
 		display: flex;
@@ -28,20 +57,34 @@
 
 .footer__menu-row {
 	margin-bottom: 3.125rem;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .footer__about {
 	margin-right: 54px;
-  	width: 40%; 
+		width: 40%;
+
+	@include tablets {
+		width: 100%;
+		margin-bottom: 50px;
+		margin-right: 0;
+	}
 }
 
 .footer__quote {
 	width: 50%;
+
+	@include tablets {
+		width: 100%;
+	}
 }
 
 .footer__about-text, .footer__quote-text {
 	font-size: 16px;
-  	font-weight: normal;
+		font-weight: normal;
 	color: white;
 	opacity: .3;
 	margin-bottom: 20px;
@@ -49,21 +92,31 @@
 
 .footer__author-name {
 	font-size: 18px;
-  	font-weight: bold;
+		font-weight: bold;
 	color: white;
 	text-transform: uppercase;
 	margin-bottom: 1.2rem;
+
+	@include phones {
+		margin-bottom: 0.2rem;
+	}
 }
 
 .footer__author-desc {
 	font-size: 16px;
-  	font-weight: normal;
+		font-weight: normal;
 	color: white;
 	opacity: .15;
 }
 
 .footer__copyright {
 	width: 50%;
+	margin-right: 50px;
+
+	@media screen and (max-width: 975px) {
+		margin-bottom: 30px;
+		width: 100%;
+		}
 
 	&-text {
 		font-size: 48px;
@@ -76,6 +129,10 @@
 
 .footer__author {
 	width: 44%;
+
+	@include tablets {
+		width: 100%;
+	}
 }
 
 .footer__quote-author {
@@ -87,10 +144,38 @@
 
 .footer__nav {
 	width: 85%;
+	
 
 	.nav__list {
 		justify-content: space-between;
+
+		@media screen and (max-width: 975px) {
+			width: 100%;
+			flex-wrap: wrap;
+			line-height: 3;
+			justify-content: flex-start;
+			}
+	}
+
+	@include phones {
+		width: 100%;
 	}
 }
 
+.footer__nav .nav__item {
+	@include tablets {
+		margin-right: 2.75rem;
+	}
+
+	@include phones {
+		margin-right: 3.75rem;
+	}
+}
+
+.footer__menu-row--about {
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+	}
+}
 

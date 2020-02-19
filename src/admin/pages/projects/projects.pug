@@ -1,0 +1,17 @@
+section.section.projects
+	.container.projects__container
+		.projects__intro
+			h2.title.projects__title Блок «Работы»
+		.projects__content
+			.projects__col(v-if="showAddingCard")
+				projects-add-new(:work="work" @hideAddingCard="hideAddingCard")
+			.projects__blocks
+				ul.projects__list
+					li.block-item.block-item--add.projects__item
+						.block-item__container
+							button.add-block__btn(type="button" @click="showAddingCard = true")
+								.add-block__icon
+								p Добавить работу
+					li.block-item.projects__item(v-for="work in getWorks" :key="work.id")
+						projects-item(:work="work" @editWork="editWork")
+

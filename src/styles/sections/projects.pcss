@@ -3,45 +3,100 @@
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 120px 0;
+
+	@include tablets {
+		padding: 120px 40px;
+	}
+
+	@include phones {
+		padding: 90px 0;
+		width: 100%;
+	}
 }
 
-.projects__content {
+.projects__slider {
 	display: flex;
 	justify-content: space-between;
+
+	@include tablets {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .projects__title {
 	font-size: 2rem;
-    margin-bottom: 4rem;
+		margin-bottom: 4rem;
+
+	@include tablets {
+		margin-bottom: 3.6rem;
+	}
+
+	@include phones {
+		width: 100%;
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
 }
 
 .projects__about {
 	margin-bottom: 2rem;
+
+	@include tablets {
+		margin-bottom: 30px;
+	}
 }
 
 .projects__data {
 	width: 35%;
+
+	@include tablets {
+		width: 80%;
+	}
+
+	@include phones {
+		width: 100%;
+		padding: 1.2rem;
+	}
 }
 
 .projects__info {
 	opacity: .7;
+
+	@include phones {
+		text-align: left;
+	}
 }
 
 .projects__tags {
 	display: flex;
 	margin-bottom: 3rem;
+
+	@include tablets {
+		margin-bottom: 30px;
+	}
 }
 
 .tags__item {
 	margin-right: 0.625rem;
-    padding: .7rem 1.3rem;
+		padding: .7rem 1.3rem;
 	background-color: rgba(#859ec2, .1);
 	border-radius: 22px;
+
+	@include tablets {
+		margin-right: 15px;
+	}
 	
 	&:hover {
 		.tags__link {
 			color: $href;
 		}
+	}
+
+	&:last-child {
+		margin-right: 0;
 	}
 }
 
@@ -49,7 +104,7 @@
 	color: $font;
 	opacity: .7;
 	font-size: 15px;
-  	font-weight: 600;
+		font-weight: 600;
 }
 
 
@@ -84,23 +139,48 @@
 .projects__visuals {
 	position: relative;
 	width: 60%;
+
+	@include tablets {
+		width: 100%;
+		margin-bottom: 4.9rem;
+	}
+
+	@include phones {
+		margin-bottom: 50px;
+	}
 }
 
-.projects__visuals:after {
-	content: "";
-    position: absolute;
-    right: -3.5rem;
-    top: 0.25rem;
-    width: 10.25rem;
-    height: 14.125rem;
+.projects__visuals:before {
+	content: attr(data-slide);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-60%);
+	line-height: 1;
+	left: 95%;
+	font-size: 25rem;
+	font-weight: 800;
+	margin-left: -8%;
+	color: rgba(65,76,99,.05);
 	z-index: -1;
-  	background-image: url("~images/backgrounds/number-2.png");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+
+	@include phones {
+		display: none;
+	}
 }
 
-.slider {
+.projects__desc {
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	@include phones {
+		align-items: flex-start;
+	}
+}
+
+.slider__content {
 	display: flex;
 	align-items: flex-end;
 }
@@ -111,15 +191,53 @@
 
 .projects__text {
 	width: 85%;
+
+	@include tablets {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	@include phones {
+		width: 100%;
+			align-items: flex-start;
+	}
+}
+
+.projects__name {
+
+	text-align: left;
+	
+	@include tablets {
+		text-align: center;
+		margin-bottom: 30px;
+		font-size: 30px;
+	}
+	
+}
+
+.projects__name {
+	@inlcude phones {
+		text-align: left;
+		
+	}
 }
 
 .slider__row {
-	display: flex;
-	justify-content: flex-end;
 	position: absolute;
-	left: 5.5rem;
+	right: 3.5rem;
 	margin-bottom: 35px;
 	width: 80%;
+
+	@include phones {
+		display: none;
+	}
+}
+
+.slider__row-list {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .slider__row-item {
@@ -130,8 +248,30 @@
 	}
 }
 
+
 .slider__row-image {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+	
+}
+
+.slider__row-link:hover {
+	.slider__row-image {
+		border: 3px solid orange;
+	}
+}
+
+.slider__row-link {
+	&:focus {
+		.slider__row-image {
+			outline: 1px solid orange;
+		}
+		
+	}
+}
+
+.active {
+	border: 3px solid orange;
+	
 }

@@ -1,0 +1,16 @@
+section.section.reviews
+	.container.reviews__container
+		.reviews__intro
+			h2.title.reviews__title Блок «Отзывы»
+		.reviews__content
+			.reviews__col(v-if="showAddingCard")
+				reviews-add-new(:review="review" @hideAddingCard="hideAddingCard")
+			.reviews__blocks
+				ul.reviews__list
+					li.block-item.block-item--add.reviews__item
+						.block-item__container
+							button.add-block__btn(type="button" @click="showAddingCard = true")
+								.add-block__icon
+								p Добавить отзыв
+					li.block-item.reviews__item(v-for="review in getReviews" :key="review.id")
+						reviews-item(:review="review" @editReview="editReview" @hideAddingCard="hideAddingCard")

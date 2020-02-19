@@ -14,33 +14,87 @@
 	bottom: -50px;
 	width: 385px;
 	height: 593px;
-  	background-image: url("~images/backgrounds/hands.png");
+		background-image: url("~images/backgrounds/hands.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+
+	@media screen and (max-width: 1150px) {
+		width: 21.0625rem;
+			height: 31.0625rem;
+	}
+
+	@media screen and (max-width: 1025px) {
+			display: none;
+		}
+
 }
 
 .skills__container {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	padding-top: 120px;
-	padding-bottom: 120px;
+	padding-top: 130px;
+	padding-bottom: 130px;
+
+	@include tablets {
+		padding-top: 110px;
+		padding-bottom: 20px;
+		align-items: center;
+		padding-bottom: 0;
+		justify-content: space-between;
+	}
 }
 
 .skills__title {
 	color: white;
 	margin-bottom: 2.5rem;
+
+	@include tablets {
+		width: 50%;
+			text-align: center;
+		min-width: 350px;
+		margin-bottom: 1.5rem
+	}
+
+	@include phones {
+		min-width: 200px;
+		width: 100%;
+		text-align: left;
+		margin-bottom: 30px;
+		font-size: 24px;
+	}
 }
 
 .skills__subtitle {
 	width: 70%;
+
+	@include tablets {
+		text-align: center;
+			width: 80%;
+	}
+
+	@include phones {
+		text-align: left;
+	}
 }
 
 .skills__about {
 	color: white;
 	width: 73%;
-    margin-bottom: 3.125rem;
+		margin-bottom: 90px;
+
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 60px;
+	}
+
+	@include phones {
+		width: 100%;
+			align-items: flex-start;
+	}
 
 	.skills__subtitle {
 		opacity: .7;
@@ -49,26 +103,87 @@
 
 .skills__data {
 	color: white;
+
+	@include tablets {
+		padding: 1rem 1rem;
+	}
+
+	@include phones {
+		width: 100%;
+			padding: 0;
+	}
 }
 
 .skills-row {
-	margin-bottom: 2.5rem;
 
-	&:last-child {
-		margin-bottom: 0;
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
+
+
 }
 
 .skills-row__title {
 	margin-bottom: 1.0625rem;
-	font-size: 1.5rem;
+
 }
 
 .skills-row__list {
 	display: flex;
+
+	@include tablets {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 }
 
 .skills-row__item {
 	margin-right: 48px;
+
+	@media screen and (max-width: 975px) {
+			margin-right: 1rem;
+		}
+
+	@include phones {
+		margin-right: 0;
+	}
 }
 
+.user-skills {
+
+	&__item {
+		margin-bottom: 2.5rem;
+
+		&:last-child {
+			margin-bottom: 0rem;
+		}
+	}
+	
+	@include tablets {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+}
+
+.skills__bg {
+	display: none;
+
+	@include tablets {
+		display: block;
+		height: 385px;
+		width: 593px;
+		background-image: url("~images/backgrounds/hands-rotated.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	
+	@include phones {
+		height: 15.0625rem;
+	 		width: 23.0625rem;
+	}
+}

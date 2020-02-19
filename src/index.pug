@@ -2,26 +2,73 @@ include ./mixins.pug
 
 <!DOCTYPE html>
 html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio | Главная
-  body
-    .wrapper
-      .welcome-section
-        .parallax
-          +image("backgrounds/bg-train.jpg", "parallax__image")
-        include ./pug/sections/hero
-        include ./pug/sections/about
-      .between-section
-        .between-item
-          +image("backgrounds/bg-dark.png", "between-image")
-      include ./pug/sections/skills
-      include ./pug/sections/projects
-      .final-section
-        .parallax
-          +image("backgrounds/bg-road.png", "parallax__image")
-        include ./pug/sections/reviews
-        include ./pug/sections/contact
-      include ./pug/sections/footer
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Portfolio | Главная
+	body
+		.wrapper
+			.welcome-section
+
+				include ./pug/sections/static-bg
+				
+				.parallax
+					- var sky1200 = `${require('./images/backgrounds/1200-parallax-1@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-1@2x.png')} 2x`;
+					- var sky1800 = `${require('./images/backgrounds/1800-parallax-1@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-1@2x.png')} 2x`;
+					- var hills1200 = `${require('./images/backgrounds/1200-parallax-2@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-2@2x.png')} 2x`;
+					- var hills1800 = `${require('./images/backgrounds/1800-parallax-2@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-2@2x.png')} 2x`;
+					- var train1200 = `${require('./images/backgrounds/1200-parallax-3@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-3@2x.png')} 2x`;
+					- var train1800 = `${require('./images/backgrounds/1800-parallax-3@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-3@2x.png')} 2x`;
+					- var field1200 = `${require('./images/backgrounds/1200-parallax-4@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-4@2x.png')} 2x`;
+					- var field1800 = `${require('./images/backgrounds/1800-parallax-4@1x.png')} 1x, ${require('./images/backgrounds/1800-parallax-4@2x.png')} 2x`;
+					
+					.parallax__layer.parallax__layer--sky(data-speed="0.1")
+						picture
+							source(class="parallax__image" media="(min-width:1800px)" srcset=sky1800) 
+							source(class="parallax__image" media="(min-width:1200px)" srcset=sky1200)
+							img(class="parallax__image" src="")
+
+					.parallax__layer.parallax__layer--hills(data-speed="0.3")
+						picture
+							source(class="parallax__image" media="(min-width:1800px)" srcset=hills1800)
+							source(class="parallax__image" media="(min-width:1200px)" srcset=hills1200)
+							img(class="parallax__image" src="")
+					
+					.parallax__layer.parallax__layer--train(data-speed="0.5")
+						picture
+							source(class="parallax__image" media="(min-width:1800px)" srcset=train1800)
+							source(class="parallax__image" media="(min-width:1200px)" srcset=train1200)
+							img(class="parallax__image" src="")
+					
+					.parallax__layer.parallax__layer--field(data-speed="0.7")
+						picture
+							source(class="parallax__image" media="(min-width:1800px)" srcset=field1800)
+							source(class="parallax__image" media="(min-width:1200px)" srcset=field1200)
+							img(class="parallax__image" src="")
+					
+					.parallax__layer(data-speed="0.5")
+						.parallax__gradient
+					.parallax__layer(data-speed="0.7")
+						.parallax__darker-gradient
+					
+					
+
+				include ./pug/sections/hero
+				.between-section
+					.between-item
+						+image("backgrounds/bg-dark.png", "between-image")
+				include ./pug/sections/about
+			
+			include ./pug/sections/skills
+			include ./pug/sections/projects
+
+			.final-section
+				.final-section__wrapper
+					+image("backgrounds/bg-road.png", "final-section__image")
+				include ./pug/sections/reviews
+				include ./pug/sections/contact
+				
+			include ./pug/sections/footer
+
+			include ./templates/entry.pug
