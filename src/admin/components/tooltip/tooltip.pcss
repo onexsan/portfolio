@@ -1,51 +1,51 @@
 .tooltip-container {
-  width: 100%;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: -100%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 30;
+	width: 100%;
+		display: flex;
+		justify-content: center;
+		position: fixed;
+		bottom: -100%;
+		left: 50%;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: 0.3s;
+		z-index: 30;
 
-    &.shown {
-      bottom: 0;
-      opacity: 1;
-    }
+		&.shown {
+			bottom: 0;
+			opacity: 1;
+		}
 }
 
 .tooltip {
-  z-index: 40;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  background: #4bb133;
-  padding: 22px;
+	z-index: 40;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	background: #4bb133;
+	padding: 22px;
 
 
-  &__close {
-    width: 20px;
-    height: 20px;
-    background: svg-load('cross.svg', fill=#fff) center center no-repeat;
-    cursor: pointer;
-    margin-left: 20px;
-  }
+	&__close {
+		width: 20px;
+		height: 20px;
+		background: svg-load('cross.svg', fill=#fff) center center no-repeat;
+		cursor: pointer;
+		margin-left: 20px;
+	}
 
-  &--success {
-    background: #4bb133;
-  }
+	&--success {
+		background: #4bb133;
+	}
 
-  &--warning {
-    background: #b18333;
-  }
+	&--warning {
+		background: #b18333;
+	}
 
-  &--error {
-    background: #b13333;
-  }
+	&--error {
+		background: #b13333;
+	}
 }
 
