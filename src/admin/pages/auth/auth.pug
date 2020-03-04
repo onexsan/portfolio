@@ -6,13 +6,13 @@
 			.login__row
 				label.login__label.login__label--name
 					p Логин
-					input.login__input(type="text" placeholder="Логин" v-model="user.name")
+					input.login__input.login__input--username(type="text" placeholder="Логин" v-model="user.name")
 					tooltip-input(:errorText="validation.firstError('user.name')")
 			.login__row
 				label.login__label.login__label--password
 					p Пароль
-					input.login__input(type="password" placeholder="Пароль" v-model="user.password")
+					input.login__input.login__input--password(type="password" placeholder="Пароль" v-model="user.password")
 					tooltip-input(:errorText="validation.firstError('user.password')")
 			.login__row
 				.login__btn
-					button(type="submit").btn.btn__auth Отправить
+					button(type="submit" :disabled="loading").btn.btn__auth Отправить

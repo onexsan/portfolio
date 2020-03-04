@@ -24,18 +24,19 @@ export default {
       default: ""
     }
   }),
+
   components: {
     tooltipInput: () => import("../../components/tooltip-input/tooltip-input")
   },
   validators: {
     "user.name": function(value) {
       return Validator.value(value)
-        .required()
+        .required("Заполните поле.")
         .minLength(6);
     },
     "user.password": function(value) {
       return Validator.value(value)
-        .required()
+        .required("Заполните поле.")
         .minLength(6);
     }
   },
