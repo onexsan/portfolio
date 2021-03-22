@@ -1,7 +1,7 @@
-- var icons = ['insta', 'vk', 'github']
+- var icons = ['telegram', 'linkedin', 'github']
 	ul.socials
 		each item, index in icons, links
-			- var links = ['https://www.instagram.com/onexsan/', 'https://vk.com/tomodachisan', 'https://github.com/onexsan']
+			- var links = ['https://t.me/onexsan', 'https://www.linkedin.com/in/onexsan/', 'https://github.com/onexsan']
 				li.socials__item
 					a(href=links[index] target="_blank").socials__link
 						+icon(`${item}`, 'socials__icon')

@@ -1,0 +1,81 @@
+.softskills {
+	margin-top: 150px;
+	margin-bottom: 50px;
+}
+
+.softskills__title {
+	color: white;
+}
+
+.softskills__intro {
+
+	color: white;
+	width: 70%;
+	padding-left: 5%;
+	
+}
+
+.softskills__desc {
+	margin-bottom: 20px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.88;
+}
+
+.softskills__list {
+	list-style-type: disc;
+}
+
+.softskills__item {
+	margin-bottom: 7px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.88;
+	opacity: .75;
+}
+
+.softskills__container:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 10%;
+	width: 120px;
+	height: 90px;
+	background-image: url('~images/backgrounds/leaf-3.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 5;
+
+	@include tablets {
+		right: -5%;
+	}
+
+	@include phones {
+		display: none;
+	}
+}
+
+.softskills__container:after {
+	content: "";
+	position: absolute;
+	bottom: 20%;
+	right: 5%;
+	width: 420px;
+	height: 250px;
+	background-image: url('~images/backgrounds/leaf-4.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 5;
+
+	@include tablets {
+		width: 250px;
+		height: 170px;
+		right: -5%;
+	}
+
+	@include phones {
+		display: none;
+	}
+}

@@ -1,5 +1,30 @@
 section.section.contact(id="contact")
-	.container.contact__container
-		h3.section__title.contact__title Связаться со мной
-		.form__container
-			include ../blocks/form.pug
+  .container.contact__container
+    .contact__intro
+      h3.section__title.contact__title Свяжитесь со мной
+    .contact__links
+      .contact__item
+        .contact__desc  
+          +icon('email', 'contact__icon')
+          p Email:
+        .contact__content
+          a.contact__link(href="mailto:onexsan@gmail.com" target="_blank") onexsan@gmail.com
+      .contact__item
+        .contact__desc
+          +icon('telegram', 'contact__icon')
+          p Telegram:
+        .contact__content
+          a.contact__link(href="https://t.me/onexsan" target="_blank") @onexsan
+      .contact__item
+        .contact__desc
+          +icon('linkedin', 'contact__icon')
+          p Linkedin:
+        .contact__content
+          a.contact__link(href="https://www.linkedin.com/in/onexsan/" target="_blank") onexsan
+      .contact__item
+        .contact__desc
+          +icon('github', 'contact__icon')
+          p Github:
+        .contact__content
+          a.contact__link(href="https://github.com/onexsan" target="_blank") onexsan
+      

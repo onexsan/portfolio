@@ -11,7 +11,7 @@
 	content: "";
 	position: absolute;
 	left: 0;
-	bottom: -50px;
+	bottom: 25%;
 	width: 385px;
 	height: 593px;
 		background-image: url("~images/backgrounds/hands.png");
@@ -66,8 +66,17 @@
 	}
 }
 
-.skills__subtitle {
-	width: 70%;
+.skills__desc {
+	list-style-type: disc;
+}
+
+.skills__desc-item {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.88;
+	opacity: .75;
+	width: 80%;
+	margin-bottom: 7px;
 
 	@include tablets {
 		text-align: center;

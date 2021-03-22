@@ -1,7 +1,7 @@
 ul.nav__list
-	- var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+	- var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Softskills", "Связаться"]
 	
 	each item, index in navItems, links
-		- var links = ['#home', '#about', '#skills', '#projects', '#reviews', '#contact']
+		- var links = ['#home', '#about', '#skills', '#projects', '#softskills', '#contact']
 			li.nav__item
 				a(href=links[index]).nav__link #{item}
